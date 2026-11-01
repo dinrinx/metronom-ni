@@ -1,0 +1,47 @@
+/* Generated from Figma Variables. First mode = :root default.
+   FLOAT tokens are unitless — multiply by 1px in calc() where a length is needed. */
+
+:root {
+  --accent-green-text: var(--green-500); /* @kind color */
+  --accent-green: var(--green-500); /* @kind color */
+  --accent-purple-text: var(--purple-500); /* @kind color */
+  --accent-purple: var(--purple-500); /* @kind color */
+  --accent-red-stroke: var(--red-500); /* @kind color */
+  --accent-red-text: var(--red-500); /* @kind color */
+  --accent-red: var(--red-500); /* @kind color */
+  --action-default: var(--black-900); /* @kind color */
+  --action-disabled-bg: var(--grey-100); /* @kind color */
+  --action-disabled-text: var(--grey-700); /* @kind color */
+  --action-hover: var(--black-1000); /* @kind color */
+  --bg-input: var(--grey-100); /* @kind color */
+  --bg-inverse: var(--black-900); /* @kind color */
+  --bg-primary: var(--white-0); /* @kind color */
+  --bg-subtle: var(--grey-100); /* @kind color */
+  --black-1000: rgb(0,0,0); /* @kind color */
+  --black-900: rgb(29,29,27); /* @kind color */
+  --border-default: var(--grey-200); /* @kind color */
+  --border-focus: var(--black-900); /* @kind color */
+  --green-500: rgb(143,238,82); /* @kind color */
+  --grey-100: rgb(244,245,247); /* @kind color */
+  --grey-200: rgb(217,217,214); /* @kind color */
+  --grey-700: rgb(80,87,89); /* @kind color */
+  --purple-500: rgb(141,58,246); /* @kind color */
+  --radius-full: 999;
+  --radius-lg: 16;
+  --radius-md: 12;
+  --radius-sm: 8;
+  --radius-xl: 20;
+  --red-500: rgb(239,49,36); /* @kind color */
+  --spacing-2xl: 40;
+  --spacing-3xl: 48;
+  --spacing-lg: 24;
+  --spacing-md: 16;
+  --spacing-sm: 8;
+  --spacing-xl: 32;
+  --spacing-xs: 4;
+  --text-disabled: var(--grey-200); /* @kind color */
+  --text-inverse: var(--white-0); /* @kind color */
+  --text-primary: var(--black-900); /* @kind color */
+  --text-secondary: var(--grey-700); /* @kind color */
+  --white-0: rgb(255,255,255); /* @kind color */
+}

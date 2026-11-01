@@ -1,0 +1,658 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "assets/icons/**",
+              "components/core/**",
+              "components/forms/**",
+              "components/misc/**",
+              "components/navigation/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Golos Text))/i]",
+        "message": "Font not provided by the design system. Available: Golos Text."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='AddArticle'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|text2|text3|key|ref|className|style|children)$/]",
+        "message": "<AddArticle> doesn't accept that prop. Declared props: className, style, text1, text2, text3."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArrowCDown'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|size|style2|key|ref|className|style|children)$/]",
+        "message": "<ArrowCDown> doesn't accept that prop. Declared props: className, style, size, style2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArrowCDown'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:16|20|24|32|64)$/]",
+        "message": "<ArrowCDown> size must be one of '16' | '20' | '24' | '32' | '64'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArrowCDown'] > JSXAttribute[name.name='style2'] > Literal[value!=/^(?:light|regular|solid)$/]",
+        "message": "<ArrowCDown> style2 must be one of 'light' | 'regular' | 'solid'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArrowCRight'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|size|style2|key|ref|className|style|children)$/]",
+        "message": "<ArrowCRight> doesn't accept that prop. Declared props: className, style, size, style2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArrowCRight'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:16|20|24|32|64)$/]",
+        "message": "<ArrowCRight> size must be one of '16' | '20' | '24' | '32' | '64'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArrowCRight'] > JSXAttribute[name.name='style2'] > Literal[value!=/^(?:light|regular|solid)$/]",
+        "message": "<ArrowCRight> style2 must be one of 'light' | 'regular' | 'solid'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|label|style2|state|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: className, style, label, style2, state."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='style2'] > Literal[value!=/^(?:primary|secondary)$/]",
+        "message": "<Button> style2 must be one of 'primary' | 'secondary'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|hover|active|disabled)$/]",
+        "message": "<Button> state must be one of 'default' | 'hover' | 'active' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ButtonIcon'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|size|iconRightInstanceSmall|iconRightInstanceMedium|type|iconLeftInstanceMedium|rightIconMenu|iconLeftInstanceSmall|state|icon1|key|ref|className|style|children)$/]",
+        "message": "<ButtonIcon> doesn't accept that prop. Declared props: className, style, size, iconRightInstanceSmall, iconRightInstanceMedium, type, iconLeftInstanceMedium, rightIconMenu, iconLeftInstanceSmall, state, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ButtonIcon'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md)$/]",
+        "message": "<ButtonIcon> size must be one of 'sm' | 'md'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ButtonIcon'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:fill|primary|success)$/]",
+        "message": "<ButtonIcon> type must be one of 'fill' | 'primary' | 'success'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ButtonIcon'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|disabled|focus|loading)$/]",
+        "message": "<ButtonIcon> state must be one of 'default' | 'disabled' | 'focus' | 'loading'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Checkbox'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|size|label|state|indeterminate|checked|icon1|key|ref|className|style|children)$/]",
+        "message": "<Checkbox> doesn't accept that prop. Declared props: className, style, size, label, state, indeterminate, checked, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Checkbox'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm)$/]",
+        "message": "<Checkbox> size must be one of 'sm'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Checkbox'] > JSXAttribute[name.name='label'] > Literal[value!=/^(?:on|off)$/]",
+        "message": "<Checkbox> label must be one of 'on' | 'off'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Checkbox'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|focused|warning|error|disabled)$/]",
+        "message": "<Checkbox> state must be one of 'default' | 'focused' | 'warning' | 'error' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CheckboxAtom'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|size|state|indeterminate|checked|icon1|key|ref|className|style|children)$/]",
+        "message": "<CheckboxAtom> doesn't accept that prop. Declared props: className, style, size, state, indeterminate, checked, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CheckboxAtom'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm)$/]",
+        "message": "<CheckboxAtom> size must be one of 'sm'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CheckboxAtom'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|focused|warning|error|disabled)$/]",
+        "message": "<CheckboxAtom> state must be one of 'default' | 'focused' | 'warning' | 'error' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Counter'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text|size|state|key|ref|className|style|children)$/]",
+        "message": "<Counter> doesn't accept that prop. Declared props: className, style, text, size, state."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Counter'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Counter> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Counter'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|disabled)$/]",
+        "message": "<Counter> state must be one of 'default' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DatePicker'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|range|text1|text2|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<DatePicker> doesn't accept that prop. Declared props: className, style, range, text1, text2, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DatePickerItemsCell'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|date|state|today|range|weekend|text1|key|ref|className|style|children)$/]",
+        "message": "<DatePickerItemsCell> doesn't accept that prop. Declared props: className, style, date, state, today, range, weekend, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DatePickerItemsCell'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|hover|selected|disabled)$/]",
+        "message": "<DatePickerItemsCell> state must be one of 'default' | 'hover' | 'selected' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DatePickerItemsCell'] > JSXAttribute[name.name='range'] > Literal[value!=/^(?:none|first|middle|last)$/]",
+        "message": "<DatePickerItemsCell> range must be one of 'none' | 'first' | 'middle' | 'last'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DesktopTablet'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|icon1|icon2|icon3|key|ref|className|style|children)$/]",
+        "message": "<DesktopTablet> doesn't accept that prop. Declared props: className, style, text1, icon1, icon2, icon3."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Droplist'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|key|ref|className|style|children)$/]",
+        "message": "<Droplist> doesn't accept that prop. Declared props: className, style, state."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Droplist'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|date)$/]",
+        "message": "<Droplist> state must be one of 'default' | 'date'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DroplistItems'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|text1|key|ref|className|style|children)$/]",
+        "message": "<DroplistItems> doesn't accept that prop. Declared props: className, style, state, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='DroplistItems'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|select|unactive)$/]",
+        "message": "<DroplistItems> state must be one of 'default' | 'select' | 'unactive'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FileUploaderUploader'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|file|info|text1|text2|icon1|key|ref|className|style|children)$/]",
+        "message": "<FileUploaderUploader> doesn't accept that prop. Declared props: className, style, state, file, info, text1, text2, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FileUploaderUploader'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|focus|disabled|progress|success|error|uploaded)$/]",
+        "message": "<FileUploaderUploader> state must be one of 'default' | 'focus' | 'disabled' | 'progress' | 'success' | 'error' | 'uploaded'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FileUploaderUploader'] > JSXAttribute[name.name='file'] > Literal[value!=/^(?:uploader|file)$/]",
+        "message": "<FileUploaderUploader> file must be one of 'uploader' | 'file'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FileUploaderUploader'] > JSXAttribute[name.name='info'] > Literal[value!=/^(?:no|yes|inactive)$/]",
+        "message": "<FileUploaderUploader> info must be one of 'no' | 'yes' | 'inactive'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FormsGlyphIcon'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|property1|property2|key|ref|className|style|children)$/]",
+        "message": "<FormsGlyphIcon> doesn't accept that prop. Declared props: className, style, property1, property2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FormsGlyphIcon'] > JSXAttribute[name.name='property1'] > Literal[value!=/^(?:done|plus|file|loading|cancel|error|search|\\?|arrow-down|arrow-next|arrows open)$/]",
+        "message": "<FormsGlyphIcon> property1 must be one of 'done' | 'plus' | 'file' | 'loading' | 'cancel' | 'error' | 'search' | '?' | 'arrow-down' | 'arrow-next' | 'arrows open'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FormsGlyphIcon'] > JSXAttribute[name.name='property2'] > Literal[value!=/^(?:md|sm|super small)$/]",
+        "message": "<FormsGlyphIcon> property2 must be one of 'md' | 'sm' | 'super small'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GlyphIcon'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|property1|property2|key|ref|className|style|children)$/]",
+        "message": "<GlyphIcon> doesn't accept that prop. Declared props: className, style, property1, property2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GlyphIcon'] > JSXAttribute[name.name='property1'] > Literal[value!=/^(?:done|plus|file|loading|cancel|error|search|\\?|arrow-down|arrow-next|arrows open)$/]",
+        "message": "<GlyphIcon> property1 must be one of 'done' | 'plus' | 'file' | 'loading' | 'cancel' | 'error' | 'search' | '?' | 'arrow-down' | 'arrow-next' | 'arrows open'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='GlyphIcon'] > JSXAttribute[name.name='property2'] > Literal[value!=/^(?:md|sm|super small)$/]",
+        "message": "<GlyphIcon> property2 must be one of 'md' | 'sm' | 'super small'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='HelpCenterButton'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|counter|text1|key|ref|className|style|children)$/]",
+        "message": "<HelpCenterButton> doesn't accept that prop. Declared props: className, style, counter, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Icon'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|size|key|ref|className|style|children)$/]",
+        "message": "<Icon> doesn't accept that prop. Declared props: name, size."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconlyBoldHeart'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconlyBoldHeart> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconlyLightShare'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IconlyLightShare> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IcRoundSend'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|key|ref|className|style|children)$/]",
+        "message": "<IcRoundSend> doesn't accept that prop. Declared props: className, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|value|state|key|ref|className|style|children)$/]",
+        "message": "<Input> doesn't accept that prop. Declared props: className, style, value, state."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|focus|filled|error|disabled)$/]",
+        "message": "<Input> state must be one of 'default' | 'focus' | 'filled' | 'error' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input2'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text|search|state|iconLeft|placeholder|iconRight|icon1|icon2|key|ref|className|style|children)$/]",
+        "message": "<Input2> doesn't accept that prop. Declared props: className, style, text, search, state, iconLeft, placeholder, iconRight, icon1, icon2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input2'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|focus|error|disabled)$/]",
+        "message": "<Input2> state must be one of 'default' | 'focus' | 'error' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Label'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text|size|autoWidth|key|ref|className|style|children)$/]",
+        "message": "<Label> doesn't accept that prop. Declared props: className, style, text, size, autoWidth."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Label'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Label> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MiscGlyphIcon'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|property1|property2|key|ref|className|style|children)$/]",
+        "message": "<MiscGlyphIcon> doesn't accept that prop. Declared props: className, style, property1, property2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MiscGlyphIcon'] > JSXAttribute[name.name='property1'] > Literal[value!=/^(?:done|plus|file|loading|cancel|error|search|\\?|arrow-down|arrow-next|arrows open)$/]",
+        "message": "<MiscGlyphIcon> property1 must be one of 'done' | 'plus' | 'file' | 'loading' | 'cancel' | 'error' | 'search' | '?' | 'arrow-down' | 'arrow-next' | 'arrows open'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MiscGlyphIcon'] > JSXAttribute[name.name='property2'] > Literal[value!=/^(?:md|sm|super small)$/]",
+        "message": "<MiscGlyphIcon> property2 must be one of 'md' | 'sm' | 'super small'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavGlyphIcon'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|property1|property2|key|ref|className|style|children)$/]",
+        "message": "<NavGlyphIcon> doesn't accept that prop. Declared props: className, style, property1, property2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavGlyphIcon'] > JSXAttribute[name.name='property1'] > Literal[value!=/^(?:done|plus|file|loading|cancel|error|search|\\?|arrow-down|arrow-next|arrows open)$/]",
+        "message": "<NavGlyphIcon> property1 must be one of 'done' | 'plus' | 'file' | 'loading' | 'cancel' | 'error' | 'search' | '?' | 'arrow-down' | 'arrow-next' | 'arrows open'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavGlyphIcon'] > JSXAttribute[name.name='property2'] > Literal[value!=/^(?:md|sm|super small)$/]",
+        "message": "<NavGlyphIcon> property2 must be one of 'md' | 'sm' | 'super small'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Plus'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|size|style2|key|ref|className|style|children)$/]",
+        "message": "<Plus> doesn't accept that prop. Declared props: className, style, size, style2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Plus'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:16|20|24|32|64)$/]",
+        "message": "<Plus> size must be one of '16' | '20' | '24' | '32' | '64'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Plus'] > JSXAttribute[name.name='style2'] > Literal[value!=/^(?:light|regular|solid)$/]",
+        "message": "<Plus> style2 must be one of 'light' | 'regular' | 'solid'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Radio'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|size|state|label|checked|icon1|key|ref|className|style|children)$/]",
+        "message": "<Radio> doesn't accept that prop. Declared props: className, style, size, state, label, checked, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Radio'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm)$/]",
+        "message": "<Radio> size must be one of 'sm'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Radio'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|focused|warning|error|disabled)$/]",
+        "message": "<Radio> state must be one of 'default' | 'focused' | 'warning' | 'error' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Radio'] > JSXAttribute[name.name='label'] > Literal[value!=/^(?:on|off)$/]",
+        "message": "<Radio> label must be one of 'on' | 'off'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RadioAtom'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|checked|key|ref|className|style|children)$/]",
+        "message": "<RadioAtom> doesn't accept that prop. Declared props: className, style, state, checked."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RadioAtom'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|focused|warning|error|disabled)$/]",
+        "message": "<RadioAtom> state must be one of 'default' | 'focused' | 'warning' | 'error' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Select'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text|state|title|text1|text2|icon1|key|ref|className|style|children)$/]",
+        "message": "<Select> doesn't accept that prop. Declared props: className, style, text, state, title, text1, text2, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Select'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|disabled|focus)$/]",
+        "message": "<Select> state must be one of 'default' | 'disabled' | 'focus'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TabItemsItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text|state|counter|type|icon1|key|ref|className|style|children)$/]",
+        "message": "<TabItemsItem> doesn't accept that prop. Declared props: className, style, text, state, counter, type, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TabItemsItem'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|active|disabled)$/]",
+        "message": "<TabItemsItem> state must be one of 'default' | 'active' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TabItemsItem'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:text|icon)$/]",
+        "message": "<TabItemsItem> type must be one of 'text' | 'icon'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tabs'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|type|icon1|icon2|icon3|icon4|key|ref|className|style|children)$/]",
+        "message": "<Tabs> doesn't accept that prop. Declared props: className, style, type, icon1, icon2, icon3, icon4."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tabs'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:text|icon)$/]",
+        "message": "<Tabs> type must be one of 'text' | 'icon'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Textarea'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text|count|size|state|placeholder|counter|key|ref|className|style|children)$/]",
+        "message": "<Textarea> doesn't accept that prop. Declared props: className, style, text, count, size, state, placeholder, counter."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Textarea'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm)$/]",
+        "message": "<Textarea> size must be one of 'sm'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Textarea'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|focus|warning|error|disabled)$/]",
+        "message": "<Textarea> state must be one of 'default' | 'focus' | 'warning' | 'error' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Textarea'] > JSXAttribute[name.name='counter'] > Literal[value!=/^(?:no|yes|with icon)$/]",
+        "message": "<Textarea> counter must be one of 'no' | 'yes' | 'with icon'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TitleInput'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text1|key|ref|className|style|children)$/]",
+        "message": "<TitleInput> doesn't accept that prop. Declared props: className, style, text1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Toggle'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|checked|label|icon1|key|ref|className|style|children)$/]",
+        "message": "<Toggle> doesn't accept that prop. Declared props: className, style, state, checked, label, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Toggle'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|focused|disabled)$/]",
+        "message": "<Toggle> state must be one of 'default' | 'focused' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Toggle'] > JSXAttribute[name.name='label'] > Literal[value!=/^(?:on|off)$/]",
+        "message": "<Toggle> label must be one of 'on' | 'off'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ToggleAtom'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|state|checked|key|ref|className|style|children)$/]",
+        "message": "<ToggleAtom> doesn't accept that prop. Declared props: className, style, state, checked."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ToggleAtom'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|disabled|focused)$/]",
+        "message": "<ToggleAtom> state must be one of 'default' | 'disabled' | 'focused'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Token'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|text|state|icon|icon1|key|ref|className|style|children)$/]",
+        "message": "<Token> doesn't accept that prop. Declared props: className, style, text, state, icon, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Token'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|selected|disabled|input|add)$/]",
+        "message": "<Token> state must be one of 'default' | 'selected' | 'disabled' | 'input' | 'add'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TokenInput'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|inputText|state|stroke|rows|stroke2|key|ref|className|style|children)$/]",
+        "message": "<TokenInput> doesn't accept that prop. Declared props: className, style, inputText, state, stroke, rows, stroke2."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TokenInput'] > JSXAttribute[name.name='state'] > Literal[value!=/^(?:default|focused|warning|error|disabled)$/]",
+        "message": "<TokenInput> state must be one of 'default' | 'focused' | 'warning' | 'error' | 'disabled'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='TokenInput'] > JSXAttribute[name.name='rows'] > Literal[value!=/^(?:1|2)$/]",
+        "message": "<TokenInput> rows must be one of '1' | '2'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tooltip'] > JSXAttribute > JSXIdentifier[name!=/^(?:className|style|direction|position|closeButton|text1|icon1|key|ref|className|style|children)$/]",
+        "message": "<Tooltip> doesn't accept that prop. Declared props: className, style, direction, position, closeButton, text1, icon1."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tooltip'] > JSXAttribute[name.name='direction'] > Literal[value!=/^(?:↑|←|→|↓)$/]",
+        "message": "<Tooltip> direction must be one of '↑' | '←' | '→' | '↓'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tooltip'] > JSXAttribute[name.name='position'] > Literal[value!=/^(?:left|center|right|top|bottom)$/]",
+        "message": "<Tooltip> position must be one of 'left' | 'center' | 'right' | 'top' | 'bottom'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "AddArticle": {
+        "replaces": []
+      },
+      "ArrowCDown": {
+        "replaces": []
+      },
+      "ArrowCRight": {
+        "replaces": []
+      },
+      "Button": {
+        "replaces": []
+      },
+      "ButtonIcon": {
+        "replaces": []
+      },
+      "Checkbox": {
+        "replaces": []
+      },
+      "CheckboxAtom": {
+        "replaces": []
+      },
+      "Counter": {
+        "replaces": []
+      },
+      "DatePicker": {
+        "replaces": []
+      },
+      "DatePickerItemsCell": {
+        "replaces": []
+      },
+      "DesktopTablet": {
+        "replaces": []
+      },
+      "Droplist": {
+        "replaces": []
+      },
+      "DroplistItems": {
+        "replaces": []
+      },
+      "FileUploaderUploader": {
+        "replaces": []
+      },
+      "FormsGlyphIcon": {
+        "replaces": []
+      },
+      "GlyphIcon": {
+        "replaces": []
+      },
+      "HelpCenterButton": {
+        "replaces": []
+      },
+      "Icon": {
+        "replaces": []
+      },
+      "IconlyBoldHeart": {
+        "replaces": []
+      },
+      "IconlyLightShare": {
+        "replaces": []
+      },
+      "IcRoundSend": {
+        "replaces": []
+      },
+      "Input": {
+        "replaces": []
+      },
+      "Input2": {
+        "replaces": []
+      },
+      "Label": {
+        "replaces": []
+      },
+      "MiscGlyphIcon": {
+        "replaces": []
+      },
+      "NavGlyphIcon": {
+        "replaces": []
+      },
+      "Plus": {
+        "replaces": []
+      },
+      "Radio": {
+        "replaces": []
+      },
+      "RadioAtom": {
+        "replaces": []
+      },
+      "Select": {
+        "replaces": []
+      },
+      "TabItemsItem": {
+        "replaces": []
+      },
+      "Tabs": {
+        "replaces": []
+      },
+      "Textarea": {
+        "replaces": []
+      },
+      "TitleInput": {
+        "replaces": []
+      },
+      "Toggle": {
+        "replaces": []
+      },
+      "ToggleAtom": {
+        "replaces": []
+      },
+      "Token": {
+        "replaces": []
+      },
+      "TokenInput": {
+        "replaces": []
+      },
+      "Tooltip": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent-green",
+      "--accent-green-text",
+      "--accent-purple",
+      "--accent-purple-text",
+      "--accent-red",
+      "--accent-red-stroke",
+      "--accent-red-text",
+      "--action-default",
+      "--action-disabled-bg",
+      "--action-disabled-text",
+      "--action-hover",
+      "--bg-input",
+      "--bg-inverse",
+      "--bg-primary",
+      "--bg-subtle",
+      "--black-1000",
+      "--black-900",
+      "--border-default",
+      "--border-focus",
+      "--font-body",
+      "--green-500",
+      "--grey-100",
+      "--grey-200",
+      "--grey-700",
+      "--purple-500",
+      "--radius-full",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-sm",
+      "--radius-xl",
+      "--red-500",
+      "--spacing-2xl",
+      "--spacing-3xl",
+      "--spacing-lg",
+      "--spacing-md",
+      "--spacing-sm",
+      "--spacing-xl",
+      "--spacing-xs",
+      "--text-body-regular",
+      "--text-caption",
+      "--text-disabled",
+      "--text-display-large",
+      "--text-h1",
+      "--text-h2",
+      "--text-inverse",
+      "--text-primary",
+      "--text-secondary",
+      "--text-title-card",
+      "--white-0"
+    ],
+    "tokenKinds": {
+      "--accent-green-text": "color",
+      "--accent-green": "color",
+      "--accent-purple-text": "color",
+      "--accent-purple": "color",
+      "--accent-red-stroke": "color",
+      "--accent-red-text": "color",
+      "--accent-red": "color",
+      "--action-default": "color",
+      "--action-disabled-bg": "color",
+      "--action-disabled-text": "color",
+      "--action-hover": "color",
+      "--bg-input": "color",
+      "--bg-inverse": "color",
+      "--bg-primary": "color",
+      "--bg-subtle": "color",
+      "--black-1000": "color",
+      "--black-900": "color",
+      "--border-default": "color",
+      "--border-focus": "color",
+      "--green-500": "color",
+      "--grey-100": "color",
+      "--grey-200": "color",
+      "--grey-700": "color",
+      "--purple-500": "color",
+      "--radius-full": "radius",
+      "--radius-lg": "radius",
+      "--radius-md": "radius",
+      "--radius-sm": "radius",
+      "--radius-xl": "radius",
+      "--red-500": "color",
+      "--spacing-2xl": "spacing",
+      "--spacing-3xl": "spacing",
+      "--spacing-lg": "spacing",
+      "--spacing-md": "spacing",
+      "--spacing-sm": "spacing",
+      "--spacing-xl": "spacing",
+      "--spacing-xs": "spacing",
+      "--text-disabled": "color",
+      "--text-inverse": "color",
+      "--text-primary": "color",
+      "--text-secondary": "color",
+      "--white-0": "color",
+      "--font-body": "font",
+      "--text-display-large": "font",
+      "--text-h1": "font",
+      "--text-h2": "font",
+      "--text-title-card": "font",
+      "--text-body-regular": "font",
+      "--text-caption": "font"
+    },
+    "fontFamilies": [
+      "Golos Text"
+    ]
+  }
+}

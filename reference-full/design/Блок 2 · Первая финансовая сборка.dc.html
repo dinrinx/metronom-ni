@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EDEDEA;font-family:"Golos Text",-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#EF3124;text-decoration:none}a:hover{color:#c8261c}
+@keyframes metroSwing{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(16deg)}}
+@keyframes segGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes rowIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes ringSpin{to{transform:rotate(360deg)}}
+@keyframes drawLine{to{stroke-dashoffset:0}}
+::-webkit-scrollbar{width:0;height:0}
+</style>
+</helmet>
+
+<div style="padding:56px 60px 90px;min-width:2400px">
+
+  <div style="max-width:1180px;margin:0 0 46px">
+    <div style="display:inline-block;font:700 12px/1 'Golos Text',sans-serif;letter-spacing:.16em;color:#EF3124;text-transform:uppercase;margin-bottom:18px">Контур доверия · Первая сборка</div>
+    <h1 style="margin:0 0 14px;font:800 46px/54px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.02em;text-wrap:pretty">От источников до честной цифры свободных денег — 13 экранов</h1>
+    <p style="margin:0;max-width:900px;font:400 17px/26px 'Golos Text',sans-serif;color:#505759;text-wrap:pretty">Блок 2: Метроном подключает источники, собирает единую модель обязательств, спрашивает про неоднозначное — и показывает одну честную цифру свободных денег. Дальше защищает связанные деньги адаптивными конвертами и настраивает страховой запас.</p>
+  </div>
+
+  <!-- ============ СЦЕНАРИЙ 1 ============ -->
+  <div style="display:flex;align-items:center;gap:12px;margin:0 0 26px">
+    <span style="font:700 11px/1 'Golos Text',sans-serif;letter-spacing:.14em;color:#1D1D1B;text-transform:uppercase">Сценарий 1 · Первая сборка</span>
+    <span style="flex:1;height:1px;background:#D9D9D6"></span>
+  </div>
+
+  <div style="display:flex;gap:48px;align-items:flex-start;margin-bottom:64px">
+
+    <!-- 1 · INTRO -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:5"><span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span><span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg><svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg></span></div>
+
+        <div style="padding:70px 22px 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column">
+          <div style="display:flex;align-items:center;gap:11px;padding:0 2px 26px">
+            <span style="width:40px;height:40px;border-radius:14px;background:#1D1D1B;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M7 17h6l-2.2-14h-1.6L7 17Z" stroke="#EF3124" stroke-width="1.5" fill="none" stroke-linejoin="round"/><path d="M4.5 17h11" stroke="#EF3124" stroke-width="1.5" stroke-linecap="round"/><path d="M10 12.5 13 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" style="transform-origin:10px 13px;animation:metroSwing 1.6s ease-in-out infinite"/></svg></span>
+            <span style="display:flex;flex-direction:column;gap:3px"><span style="font:700 12px/1 'Golos Text',sans-serif;letter-spacing:.16em;color:#1D1D1B;text-transform:uppercase">Метроном</span><span style="font:400 12px/1 'Golos Text',sans-serif;color:#505759">Держу бизнес в ритме</span></span>
+          </div>
+
+          <h2 style="margin:0 0 10px;padding:0 2px;font:700 27px/33px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.015em;text-wrap:pretty">Соберём первую финансовую сводку</h2>
+          <p style="margin:0 0 22px;padding:0 2px;font:400 15px/21px 'Golos Text',sans-serif;color:#505759;text-wrap:pretty">Часть данных уже у меня — из «Народных инвестиций». Осталось подключить счета и документы.</p>
+
+          <div style="border-radius:20px;background:#F4F5F7;padding:4px 16px">
+            <div style="padding:14px 0 10px;font:600 11px/1 'Golos Text',sans-serif;letter-spacing:.1em;color:#505759;text-transform:uppercase">Уже забрал</div>
+            <sc-for list="{{ importedRows }}" as="r" hint-placeholder-count="5">
+              <span style="display:flex;align-items:center;gap:11px;padding:11px 0;border-top:1px solid rgba(0,0,0,.06)">
+                <span style="flex:none;display:flex" dangerouslySetInnerHTML="{{ icoTick }}"></span>
+                <span style="flex:1;font:400 14px/19px 'Golos Text',sans-serif;color:#505759">{{ r.label }}</span>
+                <span style="font:600 14px/19px 'Golos Text',sans-serif;color:#1D1D1B">{{ r.value }}</span>
+              </span>
+            </sc-for>
+            <div style="height:6px"></div>
+          </div>
+
+          <div style="display:flex;gap:9px;align-items:flex-start;padding:16px 6px 0">
+            <span style="flex:none;display:flex;margin-top:1px" dangerouslySetInnerHTML="{{ icoInfo }}"></span>
+            <span style="font:400 12px/17px 'Golos Text',sans-serif;color:#505759">Ничего не додумываю: если данные неоднозначны — спрошу.</span>
+          </div>
+
+          <div style="margin-top:auto;padding-bottom:34px">
+            <button style="width:100%;padding:19px;border:none;border-radius:999px;background:#1D1D1B;color:#fff;font:600 16px/1 'Golos Text',sans-serif;cursor:pointer">Подключить источники →</button>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">1 · Вступление</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> карточка-список с галочками, чёрная кнопка.</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> спокойное объяснение, что часть данных наследуется из кампании — связка НИ → Метроном.</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">B2_S1_intro</div>
+      </div>
+    </div>
+
+    <!-- 2 · SOURCES -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:5"><span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span><span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg><svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg></span></div>
+
+        <div style="padding:78px 22px 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column">
+          <h2 style="margin:0 0 8px;padding:0 2px;font:700 26px/32px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.015em;text-wrap:pretty">Откуда берём картину бизнеса</h2>
+          <p style="margin:0 0 20px;padding:0 2px;font:400 14px/20px 'Golos Text',sans-serif;color:#505759;text-wrap:pretty">Чем больше источников — тем точнее модель обязательств.</p>
+
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{ sources }}" as="s" hint-placeholder-count="4">
+              <span style="display:flex;align-items:center;gap:12px;padding:16px;border-radius:20px;background:#F4F5F7">
+                <span style="flex:none;display:flex" dangerouslySetInnerHTML="{{ s.icon }}"></span>
+                <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px">
+                  <span style="font:600 14px/18px 'Golos Text',sans-serif;color:#1D1D1B;text-wrap:pretty">{{ s.title }}</span>
+                  <span style="font:400 12px/16px 'Golos Text',sans-serif;color:#505759">{{ s.sub }}</span>
+                </span>
+                <sc-if value="{{ s.done }}" hint-placeholder-val="{{ true }}">
+                  <span style="flex:none;padding:7px 10px;border-radius:8px;background:#8FEE52;font:600 11px/1 'Golos Text',sans-serif;color:#1D1D1B">Подключено</span>
+                </sc-if>
+                <sc-if value="{{ s.pending }}" hint-placeholder-val="{{ false }}">
+                  <span style="flex:none;padding:9px 14px;border-radius:999px;background:#1D1D1B;font:600 12px/1 'Golos Text',sans-serif;color:#fff">{{ s.action }}</span>
+                </sc-if>
+              </span>
+            </sc-for>
+          </div>
+
+          <div style="display:flex;gap:9px;align-items:flex-start;padding:18px 6px 0">
+            <span style="flex:none;display:flex;margin-top:1px" dangerouslySetInnerHTML="{{ icoInfo }}"></span>
+            <span style="font:400 12px/17px 'Golos Text',sans-serif;color:#505759">Счёт, эквайринг и СБП Альфы подключились автоматически — остальное по одному действию.</span>
+          </div>
+
+          <div style="margin-top:auto;padding-bottom:34px">
+            <button style="width:100%;padding:19px;border:none;border-radius:999px;background:#1D1D1B;color:#fff;font:600 16px/1 'Golos Text',sans-serif;cursor:pointer">Собрать модель обязательств →</button>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">2 · Подключение источников</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> карточки-факты со статус-бейджами.</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> счёт и эквайринг Альфы подключены автоматически (зелёный бейдж), остальное — по одному действию; показывает роль Мультибанка и платёжных продуктов Альфы.</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">B2_S2_sources</div>
+      </div>
+    </div>
+
+    <!-- 3 · LOADER -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:5"><span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span><span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg><svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg></span></div>
+
+        <div style="padding:70px 26px 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px">
+          <span style="position:relative;width:132px;height:132px;border-radius:999px;background:#F4F5F7;display:flex;align-items:center;justify-content:center">
+            <span style="position:absolute;inset:0;border-radius:999px;border:3px solid transparent;border-top-color:#EF3124;animation:ringSpin 1.2s linear infinite"></span>
+            <svg width="54" height="54" viewBox="0 0 20 20"><path d="M7 17h6l-2.2-14h-1.6L7 17Z" stroke="#1D1D1B" stroke-width="1.1" fill="none" stroke-linejoin="round"/><path d="M4.5 17h11" stroke="#1D1D1B" stroke-width="1.1" stroke-linecap="round"/><path d="M10 12.5 13 6" stroke="#EF3124" stroke-width="1.3" stroke-linecap="round" style="transform-origin:10px 13px;animation:metroSwing .8s ease-in-out infinite"/></svg>
+          </span>
+          <div style="text-align:center">
+            <div style="font:700 26px/32px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">Считаю…</div>
+            <div style="font:400 14px/20px 'Golos Text',sans-serif;color:#505759;max-width:270px;text-wrap:pretty">Распознаю документы и привожу к единой модели обязательств</div>
+          </div>
+          <div style="width:100%;display:flex;flex-direction:column;gap:8px;padding-top:8px">
+            <sc-for list="{{ loaderSteps }}" as="s" hint-placeholder-count="3">
+              <span style="display:flex;align-items:center;gap:10px;padding:13px 16px;border-radius:16px;background:#F4F5F7;animation:rowIn .4s ease both">
+                <span style="flex:none;display:flex" dangerouslySetInnerHTML="{{ icoTick }}"></span>
+                <span style="flex:1;font:400 14px/18px 'Golos Text',sans-serif;color:#505759">{{ s.label }}</span>
+                <span style="font:500 12px/1 'Golos Text',sans-serif;color:rgba(29,29,27,.45)">{{ s.hint }}</span>
+              </span>
+            </sc-for>
+          </div>
+          <div style="position:absolute;bottom:44px;left:0;right:0;text-align:center;font:400 12px/17px 'Golos Text',sans-serif;color:rgba(29,29,27,.45)">Распознаю — но не додумываю</div>
+        </div>
+      </div>
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">3 · Расчёт</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> спиннер как в песочнице прототипа, красный акцент в анимации.</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> подчёркивает «распознаю, но не додумываю» — переход к экрану уточнения.</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">B2_S3_loader</div>
+      </div>
+    </div>
+
+    <!-- 4 · FOUND -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:5"><span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span><span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg><svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg></span></div>
+
+        <div style="padding:76px 22px 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column">
+          <span style="align-self:flex-start;padding:7px 12px;border-radius:8px;background:#FFE9A8;font:600 11px/1 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:16px">Нужно уточнение</span>
+          <h2 style="margin:0 0 10px;padding:0 2px;font:700 28px/34px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.02em;text-wrap:pretty">Нашёл 7 обязательств и 3 регулярных платежа</h2>
+          <p style="margin:0 0 20px;padding:0 2px;font:400 14px/20px 'Golos Text',sans-serif;color:#505759">Один документ читается двояко — нужно уточнить дату.</p>
+
+          <div style="border-radius:20px;background:#F4F5F7;padding:2px 16px">
+            <sc-for list="{{ foundRows }}" as="r" hint-placeholder-count="5">
+              <span style="display:flex;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid rgba(0,0,0,.06)">
+                <span style="flex:1;font:500 14px/19px 'Golos Text',sans-serif;color:#1D1D1B">{{ r.label }}</span>
+                <span style="font:400 13px/18px 'Golos Text',sans-serif;color:#505759">{{ r.meta }}</span>
+              </span>
+            </sc-for>
+            <span style="display:block;padding:13px 0;font:400 13px/18px 'Golos Text',sans-serif;color:rgba(29,29,27,.45)">и ещё 2 регулярных платежа</span>
+          </div>
+
+          <div style="margin-top:auto;padding-bottom:34px">
+            <button style="width:100%;padding:19px;border:none;border-radius:999px;background:#1D1D1B;color:#fff;font:600 16px/1 'Golos Text',sans-serif;cursor:pointer">Уточнить →</button>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">4 · Модель собрана</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> серые карточки-строки, статус-бейдж внимания.</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> результат подан фактом + честный сигнал, что один документ неоднозначен.</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">B2_S4_found</div>
+      </div>
+    </div>
+
+    <!-- 5 · CLARIFY -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:5"><span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span><span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg><svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg></span></div>
+
+        <div style="padding:78px 22px 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column">
+          <h2 style="margin:0 0 20px;padding:0 2px;font:700 26px/32px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.015em">Нужно уточнение</h2>
+
+          <div style="border-radius:24px;background:#F4F5F7;padding:20px">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:12px">
+              <span style="display:flex;flex:none" dangerouslySetInnerHTML="{{ icoDoc }}"></span>
+              <span style="font:600 12px/1 'Golos Text',sans-serif;color:#505759">Договор поставщика №14-К</span>
+            </div>
+            <div style="font:500 17px/24px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:18px;text-wrap:pretty">В договоре две даты оплаты первого платежа: 14 и 18 августа. Какая действует?</div>
+            <div style="display:flex;gap:10px">
+              <button onClick="{{ pick14 }}" style="flex:1;padding:15px;border:none;border-radius:999px;cursor:pointer;font:600 15px/1 'Golos Text',sans-serif;background:{{ d14bg }};color:{{ d14fg }};box-shadow:{{ d14ring }}">14 августа</button>
+              <button onClick="{{ pick18 }}" style="flex:1;padding:15px;border:none;border-radius:999px;cursor:pointer;font:600 15px/1 'Golos Text',sans-serif;background:{{ d18bg }};color:{{ d18fg }};box-shadow:{{ d18ring }}">18 августа</button>
+            </div>
+            <div style="text-align:center;padding-top:14px;font:600 13px/1 'Golos Text',sans-serif;color:#EF3124">Посмотреть документ</div>
+          </div>
+
+          <sc-if value="{{ clarified }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:14px;display:flex;align-items:center;gap:11px;padding:16px;border-radius:20px;background:#F4F5F7">
+              <span style="flex:none;display:flex" dangerouslySetInnerHTML="{{ icoTick }}"></span>
+              <span style="flex:1;display:flex;flex-direction:column;gap:3px">
+                <span style="font:600 14px/18px 'Golos Text',sans-serif;color:#1D1D1B">Принято: {{ clarifiedDate }}</span>
+                <span style="font:400 12px/16px 'Golos Text',sans-serif;color:#505759">Пересчитываю план платежей</span>
+              </span>
+            </div>
+          </sc-if>
+
+          <div style="display:flex;gap:9px;align-items:flex-start;padding:18px 6px 0">
+            <span style="flex:none;display:flex;margin-top:1px" dangerouslySetInnerHTML="{{ icoInfo }}"></span>
+            <span style="font:400 12px/17px 'Golos Text',sans-serif;color:#505759">В деньгах нельзя додумывать: выбор влияет на финансовый план, поэтому его делает человек.</span>
+          </div>
+
+          <div style="margin-top:auto;padding-bottom:34px">
+            <button style="width:100%;padding:19px;border:none;border-radius:999px;cursor:pointer;font:600 16px/1 'Golos Text',sans-serif;background:{{ clarifyCtaBg }};color:{{ clarifyCtaFg }}">Пересчитать сводку →</button>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">5 · Уточнение</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> карточка-вопрос с двумя кнопками (как юр-карточки прототипа).</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> система не выбирает за пользователя — принцип «не додумывать» показан буквально; выбор влияет на финансовый план.</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">B2_S5_clarify</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ СЦЕНАРИЙ 2 ============ -->
+  <div style="display:flex;align-items:center;gap:12px;margin:0 0 26px">
+    <span style="font:700 11px/1 'Golos Text',sans-serif;letter-spacing:.14em;color:#EF3124;text-transform:uppercase">Сценарий 2 · Safe-to-Spend — главный экран продукта</span>
+    <span style="flex:1;height:1px;background:#D9D9D6"></span>
+  </div>
+
+  <div style="display:flex;gap:48px;align-items:flex-start;margin-bottom:64px">
+
+    <!-- 6 · SAFE-TO-SPEND (×3 профиля) -->
+    <sc-for list="{{ s6 }}" as="p" hint-placeholder-count="3">
+      <div style="width:392px;flex:none">
+        <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+          <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:6;background:#fff"><span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span><span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg><svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg></span></div>
+
+          <div style="position:absolute;inset:54px 0 92px 0;overflow-y:auto;padding:10px 20px 24px">
+            <div style="display:flex;align-items:center;gap:9px;padding:6px 2px 18px">
+              <span style="width:9px;height:9px;border-radius:999px;background:#8FEE52"></span>
+              <span style="flex:1;font:700 15px/20px 'Golos Text',sans-serif;color:#1D1D1B">Всё под контролем</span>
+              <svg width="18" height="18" viewBox="0 0 20 20"><path d="M7 17h6l-2.2-14h-1.6L7 17Z" stroke="#1D1D1B" stroke-width="1.3" fill="none" stroke-linejoin="round"/><path d="M10 12.5 13 6" stroke="#EF3124" stroke-width="1.4" stroke-linecap="round" style="transform-origin:10px 13px;animation:metroSwing 1.6s ease-in-out infinite"/></svg>
+            </div>
+
+            <!-- сигнатурный блок «вычитание» -->
+            <div style="border-radius:26px;background:#F4F5F7;padding:18px 18px 20px;margin-bottom:14px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px">
+                <span style="font:400 12px/1 'Golos Text',sans-serif;color:#505759">На всех счетах</span>
+                <span style="font:600 14px/1 'Golos Text',sans-serif;color:#1D1D1B">{{ p.balance }}</span>
+              </div>
+              <div style="display:flex;height:22px;border-radius:8px;overflow:hidden;background:#D9D9D6;margin-bottom:10px">
+                <sc-for list="{{ p.segments }}" as="g" hint-placeholder-count="5">
+                  <span style="height:100%;transform-origin:left;animation:segGrow .5s ease both;width:{{ g.w }};background:{{ g.bg }};animation-delay:{{ g.delay }}"></span>
+                </sc-for>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px 14px;margin-bottom:18px">
+                <sc-for list="{{ p.segments }}" as="g" hint-placeholder-count="5">
+                  <span style="display:flex;align-items:center;gap:6px">
+                    <span style="width:8px;height:8px;border-radius:2px;background:{{ g.bg }}"></span>
+                    <span style="font:500 11px/1 'Golos Text',sans-serif;color:#505759">{{ g.label }}</span>
+                  </span>
+                </sc-for>
+              </div>
+
+              <div style="display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;animation:rowIn .45s ease both">
+                <span style="font:400 14px/19px 'Golos Text',sans-serif;color:#505759">На всех счетах</span>
+                <span style="font:600 15px/19px 'Golos Text',sans-serif;color:#1D1D1B">{{ p.balance }}</span>
+              </div>
+              <div style="padding:9px 0;animation:rowIn .45s .15s ease both">
+                <span style="display:flex;justify-content:space-between;align-items:baseline">
+                  <span style="font:400 14px/19px 'Golos Text',sans-serif;color:#505759">− Связано обязательствами</span>
+                  <span style="font:600 15px/19px 'Golos Text',sans-serif;color:#1D1D1B">{{ p.bound }}</span>
+                </span>
+                <span style="display:block;padding-top:5px;font:400 11px/15px 'Golos Text',sans-serif;color:rgba(29,29,27,.45)">из них кампания «Народные инвестиции» — {{ p.campaignBound }}</span>
+              </div>
+              <div style="height:1px;background:#D9D9D6;margin:10px 0 14px"></div>
+              <div style="animation:rowIn .5s .35s ease both">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                  <span style="width:6px;height:6px;border-radius:999px;background:#EF3124"></span>
+                  <span style="font:600 12px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:#EF3124;text-transform:uppercase">Действительно свободно</span>
+                </div>
+                <div style="font:800 40px/46px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.03em">{{ p.free }}</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:7px;padding-top:16px">
+                <span style="font:600 13px/1 'Golos Text',sans-serif;color:#1D1D1B">Как рассчитано</span>
+                <span style="display:flex" dangerouslySetInnerHTML="{{ icoChevron }}"></span>
+              </div>
+            </div>
+
+            <div style="padding:6px 4px 10px;font:600 11px/1 'Golos Text',sans-serif;letter-spacing:.1em;color:#505759;text-transform:uppercase">Живые конверты</div>
+            <div style="display:flex;flex-direction:column;gap:9px">
+              <sc-for list="{{ p.envelopes }}" as="e" hint-placeholder-count="5">
+                <span style="display:flex;align-items:center;gap:12px;padding:15px 16px;border-radius:20px;background:{{ e.cardBg }};box-shadow:{{ e.ring }}">
+                  <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px">
+                    <span style="font:600 15px/19px 'Golos Text',sans-serif;color:#1D1D1B;text-wrap:pretty">{{ e.name }}</span>
+                    <span style="font:400 12px/16px 'Golos Text',sans-serif;color:#505759">{{ e.due }}</span>
+                  </span>
+                  <span style="display:flex;flex-direction:column;align-items:flex-end;gap:5px">
+                    <span style="font:700 15px/19px 'Golos Text',sans-serif;color:#1D1D1B">{{ e.sum }}</span>
+                    <span style="padding:4px 8px;border-radius:8px;font:600 10px/1 'Golos Text',sans-serif;background:{{ e.badgeBg }};color:#1D1D1B">{{ e.status }}</span>
+                  </span>
+                </span>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="position:absolute;left:12px;right:12px;bottom:12px;height:74px;border-radius:30px;background:#fff;border:1px solid #D9D9D6;box-shadow:0 8px 26px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 14px">
+            <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+              <span style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px">
+                <span style="display:flex" dangerouslySetInnerHTML="{{ t.icon }}"></span>
+                <span style="font:500 10px/1 'Golos Text',sans-serif;color:{{ t.color }}">{{ t.label }}</span>
+              </span>
+            </sc-for>
+          </div>
+        </div>
+        <div style="margin-top:22px;width:392px">
+          <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">{{ p.capTitle }}</div>
+          <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> крупная геро-цифра и мягкие карточки как в референсах, серые карточки-факты, нижнее меню из прототипа.</div>
+          <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> {{ p.capNew }}</div>
+          <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">{{ p.frame }}</div>
+        </div>
+      </div>
+    </sc-for>
+
+    <!-- 7 · HOW CALCULATED -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:5"><span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span><span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg><svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg></span></div>
+
+        <div style="padding:76px 20px 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column">
+          <h2 style="margin:0 0 6px;padding:0 4px;font:700 26px/32px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.015em">Как я это посчитал</h2>
+          <p style="margin:0 0 16px;padding:0 4px;font:400 14px/20px 'Golos Text',sans-serif;color:#505759">Прогноз баланса на 30 дней с учётом всех известных списаний.</p>
+
+          <div style="border-radius:22px;background:#F4F5F7;padding:16px 14px 12px;margin-bottom:14px">
+            <svg viewBox="0 0 320 150" style="width:100%;height:150px;display:block">
+              <line x1="0" y1="118" x2="320" y2="118" stroke="#D9D9D6" stroke-width="1"/>
+              <line x1="0" y1="78" x2="320" y2="78" stroke="#D9D9D6" stroke-width="1" stroke-dasharray="3 4"/>
+              <path d="M4 40 L40 46 L72 58 L104 44 L136 96 L168 88 L200 74 L232 108 L264 84 L296 66 L316 60" fill="none" stroke="#1D1D1B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="700" stroke-dashoffset="700" style="animation:drawLine 1.4s ease forwards"/>
+              <circle cx="136" cy="96" r="5" fill="#EF3124"/>
+              <circle cx="232" cy="108" r="5" fill="#EF3124"/>
+              <text x="232" y="130" text-anchor="middle" font-family="Golos Text" font-size="10" fill="#EF3124">здесь могло не хватить</text>
+              <text x="4" y="140" font-family="Golos Text" font-size="10" fill="#505759">сегодня</text>
+              <text x="316" y="140" text-anchor="end" font-family="Golos Text" font-size="10" fill="#505759">+30 дней</text>
+            </svg>
+          </div>
+
+          <div style="padding:2px 4px 10px;font:600 11px/1 'Golos Text',sans-serif;letter-spacing:.1em;color:#505759;text-transform:uppercase">Источники цифр</div>
+          <div style="border-radius:22px;background:#F4F5F7;padding:2px 16px">
+            <sc-for list="{{ calcSources }}" as="c" hint-placeholder-count="4">
+              <span style="display:flex;flex-direction:column;gap:3px;padding:13px 0;border-bottom:1px solid rgba(0,0,0,.06)">
+                <span style="font:600 14px/18px 'Golos Text',sans-serif;color:#1D1D1B">{{ c.label }}</span>
+                <span style="font:400 12px/16px 'Golos Text',sans-serif;color:#505759">{{ c.src }}</span>
+              </span>
+            </sc-for>
+            <div style="height:6px"></div>
+          </div>
+
+          <div style="margin-top:auto;padding-bottom:34px">
+            <button style="width:100%;padding:19px;border:none;border-radius:999px;background:#1D1D1B;color:#fff;font:600 16px/1 'Golos Text',sans-serif;cursor:pointer">Понятно</button>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">7 · Как рассчитано</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> серые карточки-источники, чёрная кнопка.</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> график прогноза на 30 дней + прозрачные источники каждой цифры — расчёт детерминирован, не «чёрный ящик».</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">B2_S7_howcalc</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ СЦЕНАРИЙ 3 ============ -->
+  <div style="display:flex;align-items:center;gap:12px;margin:0 0 26px">
+    <span style="font:700 11px/1 'Golos Text',sans-serif;letter-spacing:.14em;color:#1D1D1B;text-transform:uppercase">Сценарий 3 · Адаптивные конверты и страховой запас</span>
+    <span style="flex:1;height:1px;background:#D9D9D6"></span>
+  </div>
+
+  <div style="display:flex;gap:48px;align-items:flex-start">
+
+    <!-- 8 · ENVELOPES -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:5"><span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span><span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg><svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg></span></div>
+
+        <div style="padding:76px 20px 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column">
+          <h2 style="margin:0 0 8px;padding:0 4px;font:700 26px/32px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.015em;text-wrap:pretty">Защитим деньги для важных платежей</h2>
+          <p style="margin:0 0 18px;padding:0 4px;font:400 14px/20px 'Golos Text',sans-serif;color:#505759;text-wrap:pretty">Распределил средства так, чтобы ближайшие обязательства оставались обеспечены.</p>
+
+          <div style="display:flex;justify-content:space-between;padding:0 6px 8px">
+            <span style="font:600 10px/1 'Golos Text',sans-serif;letter-spacing:.1em;color:#505759;text-transform:uppercase">Защищено</span>
+            <span style="font:600 10px/1 'Golos Text',sans-serif;letter-spacing:.1em;color:#505759;text-transform:uppercase">Ближайший срок</span>
+          </div>
+          <div style="border-radius:22px;background:#F4F5F7;padding:2px 16px">
+            <sc-for list="{{ envelopeTable }}" as="e" hint-placeholder-count="6">
+              <span style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid rgba(0,0,0,.06)">
+                <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px">
+                  <span style="font:600 14px/18px 'Golos Text',sans-serif;color:#1D1D1B;text-wrap:pretty">{{ e.name }}</span>
+                  <span style="font:700 14px/18px 'Golos Text',sans-serif;color:{{ e.sumColor }}">{{ e.sum }}</span>
+                </span>
+                <span style="font:400 12px/16px 'Golos Text',sans-serif;color:#505759;text-align:right">{{ e.due }}</span>
+              </span>
+            </sc-for>
+            <div style="height:4px"></div>
+          </div>
+
+          <div style="margin-top:14px;border-radius:20px;background:#1D1D1B;padding:16px 18px">
+            <div style="font:600 12px/1 'Golos Text',sans-serif;letter-spacing:.08em;color:#EF3124;text-transform:uppercase;margin-bottom:9px">Как это работает</div>
+            <div style="font:400 13px/19px 'Golos Text',sans-serif;color:rgba(255,255,255,.78);text-wrap:pretty">Конверты — логическое распределение. Деньги остаются на ваших счетах, но суммы под обязательства и минимальный запас не входят в свободные.</div>
+          </div>
+
+          <div style="margin-top:auto;padding-bottom:34px">
+            <button style="width:100%;padding:19px;border:none;border-radius:999px;background:#1D1D1B;color:#fff;font:600 16px/1 'Golos Text',sans-serif;cursor:pointer">Настроить страховой запас →</button>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">8 · Конверты</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> серые карточки-факты, зелёные бейджи обеспеченности.</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> явная врезка-объяснение, что конверты — логика, а не отдельные счета; страховой запас показан как «формируется», свободные — акцентом.</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">B2_S8_envelopes</div>
+      </div>
+    </div>
+
+    <!-- 9 · ENVELOPE DETAIL -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:5"><span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span><span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg><svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg></span></div>
+
+        <div style="padding:74px 20px 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column">
+          <div style="display:flex;gap:8px;padding:0 2px 18px">
+            <button onClick="{{ tabRent }}" style="flex:1;padding:11px;border:none;border-radius:999px;cursor:pointer;font:600 13px/1 'Golos Text',sans-serif;background:{{ tabRentBg }};color:{{ tabRentFg }}">Аренда и ФОТ</button>
+            <button onClick="{{ tabBackers }}" style="flex:1;padding:11px;border:none;border-radius:999px;cursor:pointer;font:600 13px/1 'Golos Text',sans-serif;background:{{ tabBackersBg }};color:{{ tabBackersFg }}">Бэкеры</button>
+          </div>
+
+          <div style="padding:0 4px 18px">
+            <div style="font:400 13px/18px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px">{{ envTitle }}</div>
+            <div style="font:800 34px/40px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.025em;margin-bottom:12px">{{ envSum }}</div>
+            <span style="display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:8px;background:#8FEE52;font:600 12px/1 'Golos Text',sans-serif;color:#1D1D1B">{{ envStatus }}</span>
+          </div>
+
+          <div style="border-radius:22px;background:#F4F5F7;padding:2px 16px;margin-bottom:12px">
+            <sc-for list="{{ envParts }}" as="r" hint-placeholder-count="2">
+              <span style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid rgba(0,0,0,.06)">
+                <span style="flex:1;font:500 14px/19px 'Golos Text',sans-serif;color:#1D1D1B">{{ r.label }}</span>
+                <span style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+                  <span style="font:700 14px/18px 'Golos Text',sans-serif;color:#1D1D1B">{{ r.sum }}</span>
+                  <span style="font:400 11px/15px 'Golos Text',sans-serif;color:#505759">{{ r.due }}</span>
+                </span>
+              </span>
+            </sc-for>
+            <div style="height:4px"></div>
+          </div>
+
+          <div style="border-radius:20px;background:#F4F5F7;padding:16px;margin-bottom:12px">
+            <div style="font:600 11px/1 'Golos Text',sans-serif;letter-spacing:.1em;color:#505759;text-transform:uppercase;margin-bottom:8px">Откуда данные</div>
+            <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#1D1D1B;text-wrap:pretty">{{ envSource }}</div>
+          </div>
+          <div style="border-radius:20px;background:#F4F5F7;padding:16px">
+            <div style="font:600 11px/1 'Golos Text',sans-serif;letter-spacing:.1em;color:#505759;text-transform:uppercase;margin-bottom:8px">Учтённые поступления</div>
+            <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#1D1D1B;text-wrap:pretty">{{ envIncome }}</div>
+          </div>
+
+          <div style="margin-top:auto;padding-bottom:34px;text-align:center;font:400 12px/17px 'Golos Text',sans-serif;color:rgba(29,29,27,.45)">{{ envNote }}</div>
+        </div>
+      </div>
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">9 · Внутри конверта</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> серые карточки-строки, зелёный бейдж обеспеченности.</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> состав обязательств + источник данных + учтённые поступления — конверт «прозрачен». Переключатель показывает второй вариант («Бэкеры»).</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">B2_S9_envelope_detail</div>
+      </div>
+    </div>
+
+    <!-- 10 · RESERVE RULE -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:5"><span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span><span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg><svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg></span></div>
+
+        <div style="padding:76px 20px 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column">
+          <h2 style="margin:0 0 16px;padding:0 4px;font:700 26px/32px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.015em">Страховой запас</h2>
+
+          <div style="border-radius:22px;background:#F4F5F7;padding:18px;margin-bottom:12px">
+            <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:12px">
+              <span style="font:800 32px/38px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.02em">18 000</span>
+              <span style="font:500 15px/20px 'Golos Text',sans-serif;color:#505759">из 60 000 ₽</span>
+            </div>
+            <div style="height:10px;border-radius:999px;background:#D9D9D6;overflow:hidden;margin-bottom:10px">
+              <span style="display:block;height:100%;width:30%;border-radius:999px;background:#1D1D1B;transform-origin:left;animation:segGrow .6s ease both"></span>
+            </div>
+            <div style="font:400 12px/17px 'Golos Text',sans-serif;color:#505759">Текущего хватит примерно на 4 дня обязательных расходов</div>
+          </div>
+
+          <div style="border-radius:22px;background:#1D1D1B;padding:18px;margin-bottom:12px">
+            <div style="font:600 11px/1 'Golos Text',sans-serif;letter-spacing:.1em;color:#EF3124;text-transform:uppercase;margin-bottom:10px">Правило</div>
+            <div style="font:600 17px/24px 'Golos Text',sans-serif;color:#fff;margin-bottom:10px;text-wrap:pretty">Направлять 7% действительно свободных поступлений в резерв</div>
+            <div style="font:400 13px/19px 'Golos Text',sans-serif;color:rgba(255,255,255,.7);text-wrap:pretty">При текущем прогнозе цель — 4 сентября. Если поступления снизятся, пополнение приостановится.</div>
+          </div>
+
+          <div style="border-radius:22px;background:#F4F5F7;padding:6px 16px">
+            <div style="padding:14px 0 8px;font:600 11px/1 'Golos Text',sans-serif;letter-spacing:.1em;color:#505759;text-transform:uppercase">Ограничения</div>
+            <sc-for list="{{ limits }}" as="l" hint-placeholder-count="4">
+              <span style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px solid rgba(0,0,0,.06)">
+                <span style="flex:none;width:5px;height:5px;border-radius:999px;background:#EF3124;margin-top:7px"></span>
+                <span style="flex:1;font:400 13px/18px 'Golos Text',sans-serif;color:#505759;text-wrap:pretty">{{ l.text }}</span>
+              </span>
+            </sc-for>
+            <div style="height:8px"></div>
+          </div>
+
+          <div style="margin-top:auto;padding-bottom:34px">
+            <button style="width:100%;padding:19px;border:none;border-radius:999px;background:#1D1D1B;color:#fff;font:600 16px/1 'Golos Text',sans-serif;cursor:pointer">Подтвердить правило</button>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">10 · Правило запаса</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> серая карточка-факт для цифры, чёрная кнопка.</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> адаптивное правило 7% с явными ограничениями — резерв копится, не блокируя оборот.</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">B2_S10_reserve_rule</div>
+      </div>
+    </div>
+
+    <!-- 11 · PROTECT FORMAT -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:5"><span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span><span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg><svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg></span></div>
+
+        <div style="padding:78px 20px 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column">
+          <h2 style="margin:0 0 8px;padding:0 4px;font:700 26px/32px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.015em">Как хранить резерв</h2>
+          <p style="margin:0 0 20px;padding:0 4px;font:400 14px/20px 'Golos Text',sans-serif;color:#505759">Оба варианта учитываются в расчёте одинаково.</p>
+
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <button onClick="{{ pickLogic }}" style="text-align:left;cursor:pointer;border:none;padding:18px;border-radius:22px;background:{{ fmtLogicBg }};box-shadow:{{ fmtLogicRing }};font-family:'Golos Text',sans-serif">
+              <span style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+                <span style="width:18px;height:18px;border-radius:999px;box-shadow:{{ fmtLogicDot }}"></span>
+                <span style="font:600 16px/20px 'Golos Text',sans-serif;color:#1D1D1B">Только логически</span>
+              </span>
+              <span style="display:block;padding-left:28px;font:400 13px/19px 'Golos Text',sans-serif;color:#505759;text-wrap:pretty">Учитываю в расчётах, деньги остаются на основном счёте</span>
+            </button>
+            <button onClick="{{ pickSeparate }}" style="text-align:left;cursor:pointer;border:none;padding:18px;border-radius:22px;background:{{ fmtSepBg }};box-shadow:{{ fmtSepRing }};font-family:'Golos Text',sans-serif">
+              <span style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+                <span style="width:18px;height:18px;border-radius:999px;box-shadow:{{ fmtSepDot }}"></span>
+                <span style="font:600 16px/20px 'Golos Text',sans-serif;color:#1D1D1B">Хранить отдельно</span>
+              </span>
+              <span style="display:block;padding-left:28px;font:400 13px/19px 'Golos Text',sans-serif;color:#505759;text-wrap:pretty">Подготовлю перевод на накопительный счёт Альфы</span>
+            </button>
+          </div>
+
+          <div style="display:flex;gap:9px;align-items:flex-start;padding:18px 6px 0">
+            <span style="flex:none;display:flex;margin-top:1px" dangerouslySetInnerHTML="{{ icoInfo }}"></span>
+            <span style="font:400 12px/17px 'Golos Text',sans-serif;color:#505759">Даже во втором варианте ничего не переведу без твоего подтверждения.</span>
+          </div>
+
+          <div style="margin-top:auto;padding-bottom:34px">
+            <button style="width:100%;padding:19px;border:none;border-radius:999px;background:#1D1D1B;color:#fff;font:600 16px/1 'Golos Text',sans-serif;cursor:pointer">{{ fmtCta }}</button>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">11 · Формат защиты</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> карточки-выбор с обводкой активного, как в песочнице прототипа.</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> два варианта хранения; подчёркнут human-in-the-loop — без подтверждения перевода нет.</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">B2_S11_protect_format</div>
+      </div>
+    </div>
+
+    <!-- 12 · TRANSFER CONFIRM -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:5"><span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span><span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg><svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg></span></div>
+
+        <div style="padding:78px 20px 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column">
+          <h2 style="margin:0 0 20px;padding:0 4px;font:700 26px/32px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.015em">Подтверждение перевода</h2>
+
+          <div style="border-radius:26px;background:#1D1D1B;padding:22px;margin-bottom:14px">
+            <div style="font:600 11px/1 'Golos Text',sans-serif;letter-spacing:.1em;color:rgba(255,255,255,.55);text-transform:uppercase;margin-bottom:10px">Сумма перевода</div>
+            <div style="font:800 38px/44px 'Golos Text',sans-serif;color:#fff;letter-spacing:-.025em;margin-bottom:20px">18 000 ₽</div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <span style="flex:1;display:flex;flex-direction:column;gap:4px">
+                <span style="font:400 11px/1 'Golos Text',sans-serif;color:rgba(255,255,255,.55)">Откуда</span>
+                <span style="font:600 14px/18px 'Golos Text',sans-serif;color:#fff">Основной счёт</span>
+              </span>
+              <span style="flex:none;width:34px;height:34px;border-radius:999px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font:600 16px/1 'Golos Text',sans-serif;color:#EF3124">→</span>
+              <span style="flex:1;display:flex;flex-direction:column;gap:4px;text-align:right">
+                <span style="font:400 11px/1 'Golos Text',sans-serif;color:rgba(255,255,255,.55)">Куда</span>
+                <span style="font:600 14px/18px 'Golos Text',sans-serif;color:#fff">Накопительный Альфы</span>
+              </span>
+            </div>
+          </div>
+
+          <div style="border-radius:20px;background:#F4F5F7;padding:16px">
+            <div style="display:flex;justify-content:space-between;padding:6px 0"><span style="font:400 13px/18px 'Golos Text',sans-serif;color:#505759">Свободные после перевода</span><span style="font:600 13px/18px 'Golos Text',sans-serif;color:#1D1D1B">86 000 ₽</span></div>
+            <div style="display:flex;justify-content:space-between;padding:6px 0"><span style="font:400 13px/18px 'Golos Text',sans-serif;color:#505759">Обязательства затронуты</span><span style="font:600 13px/18px 'Golos Text',sans-serif;color:#1D1D1B">Нет</span></div>
+          </div>
+
+          <div style="margin-top:auto;padding-bottom:34px;display:flex;flex-direction:column;gap:12px">
+            <button style="width:100%;padding:19px;border:none;border-radius:999px;background:#1D1D1B;color:#fff;font:600 16px/1 'Golos Text',sans-serif;cursor:pointer">Подтвердить перевод</button>
+            <div style="text-align:center;font:400 12px/17px 'Golos Text',sans-serif;color:rgba(29,29,27,.45)">Разовое разрешение, отменить можно в любой момент</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">12 · Подтверждение</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> чёрная карточка-акцент для суммы, стрелка перевода (как в блоке Фонда прототипа).</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> одноразовое разрешение на реальную операцию — деньги двигаются только по подтверждению человека.</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">B2_S12_transfer_confirm</div>
+      </div>
+    </div>
+
+    <!-- 13 · DONE -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:5"><span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span><span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg><svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg></span></div>
+
+        <div style="padding:78px 20px 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column">
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;padding:30px 0 26px">
+            <span style="width:84px;height:84px;border-radius:999px;background:#8FEE52;display:flex;align-items:center;justify-content:center">
+              <svg width="38" height="30" viewBox="0 0 38 30"><path d="M3 15.5 13.5 26 35 4" stroke="#1D1D1B" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h2 style="margin:0;font:700 27px/33px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.015em">Правило активно</h2>
+          </div>
+
+          <div style="border-radius:22px;background:#F4F5F7;padding:4px 16px;margin-bottom:14px">
+            <sc-for list="{{ doneRows }}" as="r" hint-placeholder-count="3">
+              <span style="display:flex;align-items:center;gap:11px;padding:14px 0;border-bottom:1px solid rgba(0,0,0,.06)">
+                <span style="flex:none;display:flex" dangerouslySetInnerHTML="{{ icoTick }}"></span>
+                <span style="flex:1;font:400 14px/19px 'Golos Text',sans-serif;color:#505759;text-wrap:pretty">{{ r.label }}</span>
+              </span>
+            </sc-for>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;padding:16px 0 14px">
+              <span style="font:600 13px/1 'Golos Text',sans-serif;color:#505759">Действительно свободно</span>
+              <span style="font:800 22px/26px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.02em">86 000 ₽</span>
+            </div>
+          </div>
+
+          <div style="margin-top:auto;padding-bottom:34px">
+            <button style="width:100%;padding:19px;border:none;border-radius:999px;background:#1D1D1B;color:#fff;font:600 16px/1 'Golos Text',sans-serif;cursor:pointer">На главный</button>
+            <div style="text-align:center;padding-top:12px;font:400 11px/16px 'Golos Text',sans-serif;color:rgba(29,29,27,.45)">Дальше — Блок 3 · Ежедневный цикл</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">13 · Готово</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> зелёная иконка-галочка, серая карточка-факт.</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> сдержанное подтверждение + возврат к честной цифре — экран замыкает первую сборку и ведёт в ежедневный цикл.</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">B2_S13_done</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:2400,&quot;height&quot;:1300}}">
+let ICONS = null;
+const TAB_ICONS = ['IconlyBoldHome','IconlyLightTimeCircle','IconlyLightWallet','IconlyLightCategory','IconlyLightChat'];
+const TABS = ['Главный','История','Платежи','Витрина','Чаты'];
+
+const GREYS = ['#C4C6C9','#CFD1D4','#DADCDE','#E4E6E8'];
+
+const S6 = [
+  { key:'artem', name:'Артём', frame:'B2_S6_safetospend_artem', balance:'420 000 ₽', bound:'334 000 ₽',
+    free:'86 000 ₽', campaignBound:'250 000 ₽', total:420000,
+    envelopes:[
+      {name:'Аренда и ФОТ', sum:'150 000 ₽', v:150000, due:'до 20 августа'},
+      {name:'Бэкеры', sum:'124 000 ₽', v:124000, due:'до 31 августа'},
+      {name:'Налоги', sum:'32 000 ₽', v:32000, due:'до 28 августа'},
+      {name:'Поставщики', sum:'28 000 ₽', v:28000, due:'до 14 августа'}
+    ], freeV:86000 },
+  { key:'katya', name:'Катя', frame:'B2_S6_safetospend_katya', balance:'380 000 ₽', bound:'300 000 ₽',
+    free:'80 000 ₽', campaignBound:'220 000 ₽', total:380000,
+    envelopes:[
+      {name:'Аренда кресла и помещение', sum:'130 000 ₽', v:130000, due:'до 20 августа'},
+      {name:'Бэкеры (процедуры, абонементы)', sum:'100 000 ₽', v:100000, due:'до 31 августа'},
+      {name:'Налоги', sum:'30 000 ₽', v:30000, due:'до 28 августа'},
+      {name:'Расходники (материалы)', sum:'40 000 ₽', v:40000, due:'до 14 августа'}
+    ], freeV:80000 },
+  { key:'maxim', name:'Максим', frame:'B2_S6_safetospend_maxim', balance:'460 000 ₽', bound:'360 000 ₽',
+    free:'100 000 ₽', campaignBound:'260 000 ₽', total:460000,
+    envelopes:[
+      {name:'Аренда и ФОТ', sum:'160 000 ₽', v:160000, due:'до 20 августа'},
+      {name:'Бэкеры (товарные наборы)', sum:'130 000 ₽', v:130000, due:'до 31 августа'},
+      {name:'Налоги', sum:'35 000 ₽', v:35000, due:'до 28 августа'},
+      {name:'Закупка товара / поставщики', sum:'35 000 ₽', v:35000, due:'до 14 августа'}
+    ], freeV:100000 }
+];
+
+const ENV_DETAIL = {
+  rent: { title:'Конверт «Аренда и ФОТ»', sum:'150 000 ₽', status:'Обеспечен полностью',
+    parts:[{label:'Аренда', sum:'90 000 ₽', due:'20 августа'},{label:'Зарплаты', sum:'60 000 ₽', due:'19 августа'}],
+    source:'Договор аренды №7-А от 12 марта и зарплатный реестр за август',
+    income:'Учтены поступления от эквайринга и СБП — в среднем 24 000 ₽ в день',
+    note:'Освобождается после проведения платежей' },
+  backers:{ title:'Конверт «Бэкеры»', sum:'124 000 ₽', status:'Обеспечен полностью',
+    parts:[{label:'Производство rewards', sum:'76 000 ₽', due:'до 31 августа'},{label:'Упаковка и доставка', sum:'48 000 ₽', due:'до 31 августа'}],
+    source:'Кампания «Народные инвестиции»: 120 наград, сроки и себестоимость исполнения',
+    income:'Учтены поступления от продаж за период исполнения обещаний',
+    note:'Освобождается по мере выполнения обещаний' }
+};
+
+class Component extends DCLogic {
+  state = { date: null, fmt: 'logic', envTab: 'rent' };
+
+  componentDidMount(){
+    import('./ds/icon-data.js').then(m => { ICONS = m.default; this.forceUpdate(); }).catch(() => {});
+  }
+  ico(name, size, color){
+    const d = ICONS && ICONS[name];
+    if (!d) return { __html: '' };
+    return { __html: '<svg width="' + size + '" height="' + size + '" viewBox="' + d.viewBox +
+      '" fill="none" style="display:block;color:' + color + '">' + d.body + '</svg>' };
+  }
+
+  renderVals(){
+    const st = this.state;
+    const d = ENV_DETAIL[st.envTab];
+    const pick = (on) => ({
+      bg: on ? '#1D1D1B' : '#fff',
+      fg: on ? '#fff' : '#1D1D1B',
+      ring: on ? 'none' : 'inset 0 0 0 1px #D9D9D6'
+    });
+    const p14 = pick(st.date === '14'), p18 = pick(st.date === '18');
+
+    return {
+      icoTick: this.ico('IconlyBoldTickSquare', 22, '#8FEE52'),
+      icoInfo: this.ico('IconlyLightInfoSquare', 17, 'rgba(29,29,27,.45)'),
+      icoChevron: this.ico('IconlyLightArrowRight', 17, '#1D1D1B'),
+      icoDoc: this.ico('IconlyLightDocument', 18, '#505759'),
+      tabs: TABS.map((label, i) => ({
+        label, color: i === 0 ? '#EF3124' : 'rgba(29,29,27,.45)',
+        icon: this.ico(TAB_ICONS[i], 22, i === 0 ? '#EF3124' : 'rgba(29,29,27,.45)')
+      })),
+
+      importedRows: [
+        {label:'Сумма сбора', value:'850 000 ₽'},
+        {label:'Награды (rewards)', value:'120 шт.'},
+        {label:'Бэкеры', value:'120'},
+        {label:'Сроки исполнения', value:'Подтверждены'},
+        {label:'Себестоимость', value:'Подтверждена'}
+      ],
+      sources: [
+        {title:'Счёт, эквайринг и СБП Альфы', sub:'Обороты и поступления в реальном времени', done:true, pending:false, action:'', icon:this.ico('IconlyLightWallet',22,'#1D1D1B')},
+        {title:'Другой банк · Мультибанк', sub:'Чтобы видеть картину целиком', done:false, pending:true, action:'Подключить', icon:this.ico('IconlyLightSwap',22,'#1D1D1B')},
+        {title:'Договоры, счета, налоги, календарь выплат', sub:'Распознаю документы', done:false, pending:true, action:'Загрузить', icon:this.ico('IconlyLightDocument',22,'#1D1D1B')},
+        {title:'AlfaPOS / CRM / запись / склад', sub:'Продажи, ингредиенты, поставки', done:false, pending:true, action:'Подключить', icon:this.ico('IconlyLightCategory',22,'#1D1D1B')}
+      ],
+      loaderSteps: [
+        {label:'Договоры', hint:'4 файла'},
+        {label:'Счета', hint:'11 документов'},
+        {label:'Календарь выплат', hint:'август'}
+      ],
+      foundRows: [
+        {label:'Аренда', meta:'20 августа · 90 000 ₽'},
+        {label:'ФОТ', meta:'19 августа · 60 000 ₽'},
+        {label:'Налоги (УСН)', meta:'28 августа · 32 000 ₽'},
+        {label:'Поставщики', meta:'14 или 18 августа · 28 000 ₽'},
+        {label:'Бэкеры — исполнение обещаний', meta:'31 августа · 124 000 ₽'}
+      ],
+
+      pick14: () => this.setState({date:'14'}),
+      pick18: () => this.setState({date:'18'}),
+      d14bg: p14.bg, d14fg: p14.fg, d14ring: p14.ring,
+      d18bg: p18.bg, d18fg: p18.fg, d18ring: p18.ring,
+      clarified: !!st.date,
+      clarifiedDate: st.date === '14' ? '14 августа' : '18 августа',
+      clarifyCtaBg: st.date ? '#1D1D1B' : '#F4F5F7',
+      clarifyCtaFg: st.date ? '#fff' : 'rgba(29,29,27,.45)',
+
+      s6: S6.map(p => ({
+        balance: p.balance, bound: p.bound, free: p.free, campaignBound: p.campaignBound, frame: p.frame,
+        capTitle: p.key === 'artem' ? '6 · Safe-to-Spend' : '6 · Safe-to-Spend — рескин · ' + p.name,
+        capNew: p.key === 'artem'
+          ? 'сигнатурный блок «вычитание» (полоска ' + p.balance + ' с малой долей свободного + чек-раскладка), одна честная цифра «действительно свободно» вместо остатка на счёте, живые конверты с состоянием обеспеченности.'
+          : 'тот же шаблон и та же логика — меняются только названия конвертов и суммы под отрасль (' + (p.key === 'katya' ? 'бьюти' : 'розница') + ').',
+        segments: p.envelopes.map((e, i) => ({
+          label: e.name.split(' (')[0],
+          w: (e.v / p.total * 100).toFixed(1) + '%',
+          bg: GREYS[i],
+          delay: (i * 0.09).toFixed(2) + 's'
+        })).concat([{ label:'Свободно', w:(p.freeV / p.total * 100).toFixed(1) + '%', bg:'#1D1D1B', delay:'0.4s' }]),
+        envelopes: p.envelopes.map(e => ({
+          name: e.name, sum: e.sum, due: e.due, status: 'Обеспечен',
+          cardBg: '#F4F5F7', ring: 'none', badgeBg: '#8FEE52'
+        })).concat([{
+          name:'Свободные', sum:p.free, due:'можно использовать сейчас', status:'Свободно',
+          cardBg:'#fff', ring:'inset 0 0 0 2px #EF3124', badgeBg:'#F4F5F7'
+        }])
+      })),
+
+      calcSources: [
+        {label:'Аренда — 90 000 ₽', src:'Договор аренды №7-А от 12 марта, платёж 20 числа'},
+        {label:'Зарплаты — 60 000 ₽', src:'Зарплатный реестр, выплата 19 августа'},
+        {label:'Налоги — 32 000 ₽', src:'Режим УСН, авансовый платёж 28 августа'},
+        {label:'Бэкеры — 124 000 ₽', src:'Кампания «Народные инвестиции»: 120 наград и себестоимость'},
+        {label:'Поставщики — 28 000 ₽', src:'Договор №14-К, дата уточнена вами: 18 августа'}
+      ],
+
+      envelopeTable: [
+        {name:'Аренда и зарплаты', sum:'150 000 ₽', due:'до 20 августа', sumColor:'#1D1D1B'},
+        {name:'Бэкеры', sum:'124 000 ₽', due:'до 31 августа', sumColor:'#1D1D1B'},
+        {name:'Налоги', sum:'32 000 ₽', due:'до 28 августа', sumColor:'#1D1D1B'},
+        {name:'Поставщики', sum:'28 000 ₽', due:'до 14 августа', sumColor:'#1D1D1B'},
+        {name:'Страховой запас', sum:'18 000 / 60 000 ₽', due:'формируется', sumColor:'#505759'},
+        {name:'Свободные деньги', sum:'86 000 ₽', due:'можно использовать', sumColor:'#EF3124'}
+      ],
+
+      tabRent: () => this.setState({envTab:'rent'}),
+      tabBackers: () => this.setState({envTab:'backers'}),
+      tabRentBg: st.envTab === 'rent' ? '#1D1D1B' : '#F4F5F7',
+      tabRentFg: st.envTab === 'rent' ? '#fff' : '#505759',
+      tabBackersBg: st.envTab === 'backers' ? '#1D1D1B' : '#F4F5F7',
+      tabBackersFg: st.envTab === 'backers' ? '#fff' : '#505759',
+      envTitle: d.title, envSum: d.sum, envStatus: d.status, envParts: d.parts,
+      envSource: d.source, envIncome: d.income, envNote: d.note,
+
+      limits: [
+        {text:'Не более 5 000 ₽ в день'},
+        {text:'Не трогать обязательные конверты'},
+        {text:'Не опускать Safe-to-Spend ниже минимума'},
+        {text:'При ухудшении прогноза сначала защищать аренду, зарплаты, налоги и бэкеров'}
+      ],
+
+      pickLogic: () => this.setState({fmt:'logic'}),
+      pickSeparate: () => this.setState({fmt:'separate'}),
+      fmtLogicBg: st.fmt === 'logic' ? '#fff' : '#F4F5F7',
+      fmtLogicRing: st.fmt === 'logic' ? 'inset 0 0 0 2px #EF3124' : 'none',
+      fmtLogicDot: st.fmt === 'logic' ? 'inset 0 0 0 6px #EF3124' : 'inset 0 0 0 1.5px #D9D9D6',
+      fmtSepBg: st.fmt === 'separate' ? '#fff' : '#F4F5F7',
+      fmtSepRing: st.fmt === 'separate' ? 'inset 0 0 0 2px #EF3124' : 'none',
+      fmtSepDot: st.fmt === 'separate' ? 'inset 0 0 0 6px #EF3124' : 'inset 0 0 0 1.5px #D9D9D6',
+      fmtCta: st.fmt === 'separate' ? 'Подготовить перевод →' : 'Сохранить формат',
+
+      doneRows: [
+        {label:'Всё под контролем'},
+        {label:'Ближайшие обязательства защищены'},
+        {label:'Страховой запас пополняется безопасно'}
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

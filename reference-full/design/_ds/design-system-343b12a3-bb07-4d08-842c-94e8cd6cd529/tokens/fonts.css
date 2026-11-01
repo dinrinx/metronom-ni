@@ -1,0 +1,4 @@
+/* Golos Text is the file's actual body/display font (confirmed via METADATA fonts + Foundations note:
+   the brand's real face, Styrene A/B, isn't available here, so the Figma file itself substitutes
+   Golos Text). Loaded from Google Fonts CDN (OFL-licensed, exact family — not a stand-in). */
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap');
