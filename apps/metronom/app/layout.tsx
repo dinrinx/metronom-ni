@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Метроном",
-  description: "Интерактивный прототип AI-агента Метроном для финала Альфа-Банка 2026.",
+  description: "Интерактивный прототип AI-агента Метроном для финала 2026.",
 };
 
 export const viewport: Viewport = {

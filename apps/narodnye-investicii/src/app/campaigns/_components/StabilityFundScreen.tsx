@@ -45,7 +45,7 @@ export function StabilityFundScreen({
         {history.map((entry, i) => (
           <div key={i} className="rounded-lg bg-surface p-3">
             <p className="text-body text-ink">
-              Альфа оплатила «{entry.vendor}» напрямую — {formatRub(entry.amount)}
+              Банк оплатил «{entry.vendor}» напрямую — {formatRub(entry.amount)}
             </p>
             <p className="mt-1 text-caption text-text-secondary">{formatDate(entry.date)}</p>
           </div>

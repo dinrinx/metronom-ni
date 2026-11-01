@@ -87,7 +87,7 @@ export function buildIndustryViewModel(state: DemoState) {
   const sourceCards: SourceCardViewModel[] = [
     {
       id: "alfa_account",
-      title: "Счёт, эквайринг и СБП Альфы",
+      title: "Счёт, эквайринг и СБП банка",
       sub: "Подключено автоматически",
       connected: state.connectedSources.alfa_account && state.connectedSources.alfa_acquiring && state.connectedSources.alfa_sbp,
     },

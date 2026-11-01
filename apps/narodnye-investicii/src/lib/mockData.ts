@@ -7,7 +7,7 @@ const beauty: BusinessProfile = {
   city: "Москва",
   legalStatusLabel: "Действующий",
   industryLabel: "Бьюти",
-  products: ["Альфа-Касса", "Приём оплаты с телефона"],
+  products: ["Касса банка", "Приём оплаты с телефона"],
   accountBalance: 128400,
   stabilityFund: 146000,
   stabilityFundHistory: [
@@ -44,7 +44,7 @@ const beauty: BusinessProfile = {
   lastTransaction: {
     amount: 2400,
     discountPercent: 15,
-    viaProduct: "Альфа-Кассу",
+    viaProduct: "кассу банка",
     date: "2026-07-10",
   },
   sandboxResult: { capital: 850000, paybackMonths: 14, risk: "medium", recommendedAmount: 220000 },
@@ -102,7 +102,7 @@ const horeca: BusinessProfile = {
   lastTransaction: {
     amount: 1200,
     discountPercent: 20,
-    viaProduct: "СБП/терминал Альфы",
+    viaProduct: "СБП/терминал банка",
     date: "2026-07-15",
   },
   sandboxResult: { capital: 320000, paybackMonths: 9, risk: "high", recommendedAmount: 90000 },
@@ -127,7 +127,7 @@ const retail: BusinessProfile = {
   city: "Санкт-Петербург",
   legalStatusLabel: "Действующий",
   industryLabel: "Розница",
-  products: ["Облачная касса", "Alfa Pay"],
+  products: ["Облачная касса", "Эквайринг банка"],
   accountBalance: 212000,
   stabilityFund: 0,
   stabilityFundHistory: [],
@@ -162,7 +162,7 @@ const retail: BusinessProfile = {
   lastTransaction: {
     amount: 3500,
     discountPercent: 10,
-    viaProduct: "Alfa Pay",
+    viaProduct: "эквайринг банка",
     date: "2026-07-18",
   },
   sandboxResult: { capital: 540000, paybackMonths: 11, risk: "low", recommendedAmount: 150000 },

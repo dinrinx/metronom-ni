@@ -199,8 +199,8 @@ function source(id: string, type: SourceRef["type"], title: string): SourceRef {
 }
 
 const commonSources = {
-  alfaAccount: source("src_alfa_account", "bank_operation", "Счёт Альфы"),
-  alfaAcquiring: source("src_alfa_acquiring", "bank_operation", "Эквайринг Альфы"),
+  alfaAccount: source("src_alfa_account", "bank_operation", "Счёт банка"),
+  alfaAcquiring: source("src_alfa_acquiring", "bank_operation", "Эквайринг банка"),
   niCampaign: source("src_campaign", "crowdfunding", "Кампания «Народные инвестиции»"),
   lease: source("src_lease", "contract", "Договор аренды №7-А от 12 марта"),
   payroll: source("src_payroll", "payroll", "Зарплатный реестр"),

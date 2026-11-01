@@ -18,7 +18,7 @@ const golosText = localFont({
 
 export const metadata: Metadata = {
   title: "Контур доверия",
-  description: "Альфа-Банк — экосистема народных инвестиций для предпринимателей",
+  description: "Экосистема народных инвестиций для предпринимателей",
 };
 
 export default function RootLayout({

@@ -74,7 +74,7 @@ async function getAccessToken() {
       "Content-Type": "application/x-www-form-urlencoded",
       Authorization: normalizeAuthorizationKey(authKey),
       RqUID: crypto.randomUUID(),
-      "User-Agent": "metronome-alfa-final/0.1",
+      "User-Agent": "metronome/0.1",
     },
     body: new URLSearchParams({ scope }),
   });
@@ -115,7 +115,7 @@ export async function explainDecisionWithGigachat(input: {
         Accept: "application/json",
         "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`,
-        "User-Agent": "metronome-alfa-final/0.1",
+        "User-Agent": "metronome/0.1",
       },
       body: JSON.stringify({
         model,
