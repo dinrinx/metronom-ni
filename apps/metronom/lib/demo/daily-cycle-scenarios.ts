@@ -24,9 +24,10 @@ export type DailyCycleScenarioStep =
 
 type ScenarioTone = "green" | "amber" | "dark" | "red";
 
-type ScenarioAction =
+export type ScenarioAction =
   | { type: "step"; step: DemoStepId }
-  | { type: "toast"; message: string };
+  | { type: "toast"; message: string }
+  | { type: "link"; href: string };
 
 export type ScenarioEntryCard = {
   step: DailyCycleScenarioStep;
@@ -429,7 +430,7 @@ export const DAILY_CYCLE_SCENARIOS: Record<DailyCycleScenarioStep, DailyCycleSce
     cta: { label: "Посмотреть детали", action: { type: "step", step: "fundraise_compare" } },
     secondary: {
       label: "Всё равно запустить сбор",
-      action: { type: "toast", message: "Новый сбор остаётся альтернативой, но в этом сценарии Метроном не рекомендует его первым действием." },
+      action: { type: "link", href: "/ni/campaigns/new" },
     },
   },
   fundraise_compare: {

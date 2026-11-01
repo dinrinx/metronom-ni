@@ -46,6 +46,7 @@ import {
   type DailyCycleScenarioStep,
   type ScenarioRow,
 } from "@/lib/demo/daily-cycle-scenarios";
+import type { ScenarioAction } from "@/lib/demo/daily-cycle-scenarios";
 import { buildIndustryViewModel } from "@/lib/industry/build-industry-view-model";
 import { CLARIFY_OPTIONS, PROCESSING_TASKS } from "@/lib/demo/fixtures";
 import { FALLBACK_EXPLANATIONS } from "@/lib/demo/fallback-responses";
@@ -803,9 +804,16 @@ function DailyCycleScenarioScreen({
   const secondaryAction = screen.secondary;
   const usesPlainPreparedHeading = step === "fundraise_compare";
 
-  const runAction = (action: { type: "step"; step: DemoStepId } | { type: "toast"; message: string }) => {
+  const runAction = (action: ScenarioAction) => {
     if (action.type === "step") {
       goTo(action.step);
+      return;
+    }
+
+    if (action.type === "link") {
+      // /ni — другая зона, next/link туда не ведёт
+      // eslint-disable-next-line react-hooks/immutability
+      window.location.href = action.href;
       return;
     }
 
