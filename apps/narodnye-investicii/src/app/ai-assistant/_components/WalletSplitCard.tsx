@@ -3,7 +3,7 @@ import type { WalletSplit } from "@/lib/aiInsights";
 
 const LABELS: { key: keyof WalletSplit; name: string; color: string }[] = [
   { key: "revenue", name: "Выручка", color: "#1D1D1B" },
-  { key: "taxes", name: "Налоги", color: "#EF3124" },
+  { key: "taxes", name: "Налоги", color: "var(--brand-primary)" },
   { key: "reserve", name: "Резерв", color: "#8D3AF6" },
   { key: "purchases", name: "Закупки", color: "#D9D9D6" },
 ];

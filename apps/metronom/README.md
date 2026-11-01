@@ -1,6 +1,6 @@
-# Metronome Alfa Final
+# Metronome
 
-Next.js 16 demo-prototype with mobile flows for Metronome inside Alfa Bank.
+Next.js 16 demo-prototype with mobile flows for Metronome inside a bank app.
 
 ## Local Start
 

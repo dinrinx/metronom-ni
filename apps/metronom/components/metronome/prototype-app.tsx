@@ -265,7 +265,7 @@ function LoginScreen({ state, goTo, dispatchRouteAction }: Pick<ScreenProps, "st
           <h1 className="screen-title compact">Привет, {profile.ownerName}</h1>
           <p className="screen-copy">{profile.businessLabel}</p>
         </div>
-        <p className="screen-copy centered narrow">Введи логин и пароль от Альфа-Бизнес, чтобы открыть Метроном.</p>
+        <p className="screen-copy centered narrow">Введи логин и пароль от бизнес-кабинета банка, чтобы открыть Метроном.</p>
       </div>
 
       <div className="stack gap-sm">
@@ -444,7 +444,7 @@ function IntroScreen({ goTo, viewModel }: Pick<ScreenProps, "goTo" | "viewModel"
     <div className="screen-body">
       <BackHeader onBack={() => goTo("home_entry", false)} />
       <div className="brand-row">
-        <span className="brand-glyph"><MetronomeGlyph color="#ef3124" /></span>
+        <span className="brand-glyph"><MetronomeGlyph color="var(--brand-primary)" /></span>
         <span className="brand-copy">
           <strong>Метроном</strong>
           <small>Держу бизнес в ритме</small>
@@ -535,7 +535,7 @@ function SourcesScreen({
 
       <div className="screen-footer-note">
         <InfoIcon />
-        <span>Счёт, эквайринг и СБП Альфы подключаются автоматически. Остальное включается по одному действию.</span>
+        <span>Счёт, эквайринг и СБП банка подключаются автоматически. Остальное включается по одному действию.</span>
       </div>
 
       <div className="push-bottom">
@@ -676,7 +676,7 @@ function getScenarioCompareOutcome(step: DailyCycleScenarioStep, compareId: stri
         } satisfies ScenarioCompareOutcome;
       case "overdraft":
         return {
-          cta: { label: "Подключить овердрафт Альфы", action: { type: "toast" as const, message: "Овердрафт доступен, но добавит платную долговую нагрузку уже в августе 2026 года при решаемой операционной ситуации." } },
+          cta: { label: "Подключить овердрафт банка", action: { type: "toast" as const, message: "Овердрафт доступен, но добавит платную долговую нагрузку уже в августе 2026 года при решаемой операционной ситуации." } },
           warning: "Овердрафт закроет разрыв, но добавит проценты и конкуренцию за деньги с арендой и ФОТ.",
         } satisfies ScenarioCompareOutcome;
       case "delay_supply":
@@ -1282,7 +1282,7 @@ function ProcessingScreen({ state, dispatchRouteAction }: Pick<ScreenProps, "sta
         <div className={`processing-ring-core ${progress >= 1 ? "processing-ring-core-complete" : ""}`}>
           <span className={`processing-ring-glyph ${progress >= 1 ? "processing-ring-glyph-complete" : ""}`}>
             <MetronomeGlyph
-              armColor={progress >= 1 ? "#1D1D1B" : "#EF3124"}
+              armColor={progress >= 1 ? "#1D1D1B" : "var(--brand-primary)"}
               color={progress >= 1 ? "#8FEE52" : "#1D1D1B"}
             />
           </span>
@@ -1979,7 +1979,7 @@ function ReserveFormatScreen({
             <span className={`radio-dot ${selectedMode === "separate_account" ? "radio-dot-active" : ""}`} />
             <strong>Хранить отдельно</strong>
           </span>
-          <span className="muted left-pad">Подготовлю перевод 18 000 ₽ на накопительный счёт Альфы.</span>
+          <span className="muted left-pad">Подготовлю перевод 18 000 ₽ на накопительный счёт банка.</span>
         </button>
       </div>
 
@@ -2015,7 +2015,7 @@ function TransferConfirmScreen({ state, dispatchRouteAction, goBack }: Pick<Scre
           <span className="transfer-arrow">→</span>
           <span className="right-align">
             <small>Куда</small>
-            <strong>Накопительный Альфы</strong>
+            <strong>Накопительный счёт банка</strong>
           </span>
         </div>
       </div>

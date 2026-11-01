@@ -43,7 +43,7 @@ export function buildHistoryEntries(profile: BusinessProfile): HistoryEntry[] {
     entries.push({
       id: `fund-${entry.vendor}-${entry.date}`,
       kind: "fund-payout",
-      title: `Альфа оплатила «${entry.vendor}» напрямую`,
+      title: `Банк оплатил «${entry.vendor}» напрямую`,
       subtitle: "Из Фонда стабильности",
       amount: entry.amount,
       date: entry.date,

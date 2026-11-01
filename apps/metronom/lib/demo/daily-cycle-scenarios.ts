@@ -211,7 +211,7 @@ export const DAILY_CYCLE_SCENARIOS: Record<DailyCycleScenarioStep, DailyCycleSce
       },
       {
         id: "overdraft",
-        name: "Подключить овердрафт Альфы",
+        name: "Подключить овердрафт банка",
         meta: "Доступен, лимит 150 000 ₽ · платный · добавит долговую нагрузку при решаемой ситуации",
         tag: "Менее выгоден сейчас",
       },
@@ -238,7 +238,7 @@ export const DAILY_CYCLE_SCENARIOS: Record<DailyCycleScenarioStep, DailyCycleSce
     ladder: [
       { index: "1", name: "Операционное действие", meta: "Перенос или сокращение поставки — покрывает 42 000 ₽" },
       { index: "2", name: "Фонд стабильности", meta: "Страховой запас 18 000 ₽ — выплаты напрямую поставщику и арендодателю" },
-      { index: "3", name: "Овердрафт Альфы", meta: "Закроет разрыв, но создаёт стоимость при падающем потоке" },
+      { index: "3", name: "Овердрафт банка", meta: "Закроет разрыв, но создаёт стоимость при падающем потоке" },
       { index: "4", name: "Пересмотреть стратегию", meta: "Честный повторный сбор у существующих бэкеров — с сохранением истории", accent: true },
     ],
     cta: { label: "Посмотреть, что можно сделать", action: { type: "step", step: "fundraise_intro" } },
@@ -321,7 +321,7 @@ export const DAILY_CYCLE_SCENARIOS: Record<DailyCycleScenarioStep, DailyCycleSce
   },
   backers_progress: {
     title: "Выполнение обещаний",
-    sub: "Фиксируется через AlfaPOS — вручную отмечать не нужно.",
+    sub: "Фиксируется через кассу банка — вручную отмечать не нужно.",
     stat: {
       value: "119 из 120",
       sub: "Товарные наборы выданы бэкерам",
@@ -424,7 +424,7 @@ export const DAILY_CYCLE_SCENARIOS: Record<DailyCycleScenarioStep, DailyCycleSce
     },
     compare: [
       { id: "self_funding", name: "Свои средства + отложенный запуск", meta: "Нет долга и новых обещаний · запуск позже на 3 недели", tag: "Рекомендую", featured: true },
-      { id: "alfa_credit", name: "Овердрафт или кредит Альфы", meta: "Быстро · платно · растёт долговая нагрузка при растущем потоке", tag: "Возможен" },
+      { id: "alfa_credit", name: "Овердрафт или кредит банка", meta: "Быстро · платно · растёт долговая нагрузка при растущем потоке", tag: "Возможен" },
       { id: "new_fundraise", name: "Новый сбор через «Народные инвестиции»", meta: "Без долга · но второй параллельный контур обещаний на 2 месяца", tag: "Возможен" },
     ],
     cta: { label: "Посмотреть детали", action: { type: "step", step: "fundraise_compare" } },

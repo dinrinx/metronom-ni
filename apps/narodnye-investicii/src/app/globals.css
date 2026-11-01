@@ -14,6 +14,10 @@
   --grey-200: #d9d9d6;
   --grey-700: #505759;
   --red-500: #ef3124;
+  --brand-primary: #0a2896;
+  --brand-accent: #009fdf;
+  --brand-primary-soft: #e6ebf8;
+  --danger: #ef3124;
   --green-500: #8fee52;
   --purple-500: #8d3af6;
 
@@ -31,7 +35,7 @@
   --text-secondary: var(--grey-700);
   --text-disabled: var(--grey-200);
   --text-inverse: var(--white-0);
-  --accent-red: var(--red-500);
+  --accent-red: var(--brand-primary);
   --accent-green: var(--green-500);
   --accent-purple: var(--purple-500);
 }
@@ -45,7 +49,8 @@
   --color-surface: var(--grey-100);
   --color-border-default: var(--grey-200);
   --color-text-secondary: var(--grey-700);
-  --color-red: var(--red-500);
+  --color-red: var(--brand-primary);
+  --color-danger: var(--danger);
   --color-green: var(--green-500);
   --color-purple: var(--purple-500);
 

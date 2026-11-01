@@ -103,7 +103,7 @@ function separateReserveAction(state: DemoState): ProposedAction {
     id: "action_reserve_transfer",
     type: "draft_transfer",
     title: "Подготовить перевод страхового запаса",
-    rationale: "Физически отделить 18 000 ₽ на накопительный счёт Альфы после отдельного подтверждения.",
+    rationale: "Физически отделить 18 000 ₽ на накопительный счёт банка после отдельного подтверждения.",
     requiresConfirmation: true,
     reserveMode: "separate_account",
     transferAmount: 18_000,

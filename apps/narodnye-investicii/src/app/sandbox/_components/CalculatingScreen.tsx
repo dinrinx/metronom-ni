@@ -10,7 +10,7 @@ export function CalculatingScreen({ onDone }: { onDone: () => void }) {
     <div className="flex min-h-screen md:min-h-0 md:h-full flex-col items-center justify-center px-6 py-10 text-center">
       <div
         className="h-16 w-16 animate-spin rounded-full border-[3px] border-border-default"
-        style={{ borderTopColor: "var(--red-500)" }}
+        style={{ borderTopColor: "var(--brand-primary)" }}
       />
       <div className="mt-6 flex items-center gap-1 text-h2 text-ink">
         <span>Считаем</span>

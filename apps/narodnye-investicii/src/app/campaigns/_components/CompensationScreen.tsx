@@ -19,7 +19,7 @@ export function CompensationScreen({ transaction, onBack, onDone }: Compensation
       </button>
 
       <div className="mt-4 flex flex-col">
-        <h1 className="text-h1 text-ink">Альфа компенсирует скидку</h1>
+        <h1 className="text-h1 text-ink">Банк компенсирует скидку</h1>
         <p className="mt-3 text-body text-text-secondary">
           Донатер получил скидку сразу, а тебе не пришлось закладывать её в свою маржу — разницу возвращает банк.
         </p>
