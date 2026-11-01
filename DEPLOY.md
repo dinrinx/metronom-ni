@@ -1,11 +1,12 @@
 # Деплой на Vercel
 
-Метроном (`/`) и «Народные инвестиции» (`/ni`) — **одно Next-приложение** в `apps/narodnye-investicii`:
+«Народные инвестиции» (`/ni`) открываются первыми, а Метроном — по переходу из НИ после закрытия сбора (`/campaign-handoff`). Это **одно Next-приложение** в `apps/narodnye-investicii`:
 один Vercel-проект, один домен, без прокси и переадресаций.
 
 ## Устройство
 
-- `src/app/(metronom)/` — корневой layout Метронома (маршруты `/`, `/login`, `/campaign-handoff` и т. д. через catch-all `[...slug]`), код — в `src/metronom/` (алиас `@m/*`).
+- `/` перенаправляет на `/ni` (`redirects` в `next.config.ts`).
+- `src/app/(metronom)/` — корневой layout Метронома (маршруты `/metronom` — выбор профиля, `/login`, `/campaign-handoff` и т. д. через catch-all `[...slug]`), код — в `src/metronom/` (алиас `@m/*`).
 - `src/app/(ni)/ni/` — «Народные инвестиции» под префиксом `/ni`, свой корневой layout, Tailwind и шрифты. Стили зон не пересекаются: у каждой группы свой корневой layout и свой CSS.
 - `src/app/api/gigachat/` — API Метронома.
 - Передача сбора между зонами идёт через `localStorage` (`handoff:campaign-closed`) на одном origin.
@@ -27,7 +28,7 @@
 
 ## Проверка после деплоя
 
-- `/` — Метроном, `/campaign-handoff` — экран приёмки;
+- `/` ведёт на `/ni` (НИ), `/metronom` — вход в Метроном напрямую, `/campaign-handoff` — экран приёмки;
 - `/ni`, `/ni/campaigns` — НИ; `/ni/что-угодно` — 404;
 - закрыть сбор в `/ni/campaigns/<id>` → приёмка → подтверждение → главная Метронома.
 

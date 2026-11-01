@@ -1,7 +1,7 @@
 import type { DemoStepId } from "@m/domain/types";
 
 export const STEP_PATHS: Record<DemoStepId, string> = {
-  profile_picker: "/",
+  profile_picker: "/metronom",
   login: "/login",
   home_entry: "/home",
   intro: "/intro",

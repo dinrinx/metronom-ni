@@ -51,3 +51,10 @@ test("closing a campaign in НИ reserves backer rewards on the Metronom home sc
   await expect(page.getByText(`из них кампания «Народные инвестиции» — ${formatMoney(expectedBackers)}`)).toBeVisible();
   expect(await page.evaluate(() => localStorage.getItem("handoff:campaign-closed"))).toBeNull();
 });
+
+test("the site root opens НИ first, Метроном has its own entry", async ({ page }) => {
+  await page.goto("/");
+  await expect(page).toHaveURL(/\/ni(\/|$)/);
+  await page.goto("/metronom");
+  await expect(page.getByText("Выбери профиль")).toBeVisible();
+});

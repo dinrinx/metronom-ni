@@ -11,7 +11,7 @@ export const profileMap = {
 } as const;
 
 export async function reachSafeToSpend(page: Page, profileLabel: keyof typeof profileMap) {
-  await page.goto("/", { waitUntil: "networkidle" });
+  await page.goto("/metronom", { waitUntil: "networkidle" });
   const profileId = profileMap[profileLabel];
   const credentials = INDUSTRY_PROFILES[profileId];
   let expectedState = createInitialState(profileId);
