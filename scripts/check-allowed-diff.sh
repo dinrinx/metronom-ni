@@ -8,12 +8,16 @@ BASE="${1:-baseline}"
 ALLOWED=(
   # точки подключения
   "apps/metronom/next.config.ts|10"
+  "apps/metronom/playwright.config.ts|0"
+  "apps/metronom/tests/e2e/helpers.ts|5"
   "apps/metronom/domain/types.ts|0"
   "apps/metronom/lib/navigation/step-paths.ts|0"
   "apps/metronom/domain/events/reducer.ts|0"
   "apps/metronom/components/metronome/prototype-app.tsx|3"
   "apps/narodnye-investicii/next.config.ts|10"
+  "apps/narodnye-investicii/src/app/layout.tsx|4"
   "apps/narodnye-investicii/src/app/campaigns/[id]/page.tsx|0"
+  "scripts/check-allowed-diff.sh|1"
   ".gitignore|0"
   # файлы, которые Next и npm переписывают сами
   "apps/metronom/AGENTS.md|999999"
@@ -51,7 +55,7 @@ while IFS=$'\t' read -r add del path; do
   else
     echo "✅ $path (+$add −$del)"
   fi
-done < <(git diff --no-renames --numstat "$BASE")
+done < <(git diff --no-renames --numstat "refs/tags/$BASE" --)
 
 [ $checked -eq 0 ] && echo "Существующие файлы не менялись."
 if [ $fail -eq 1 ]; then
