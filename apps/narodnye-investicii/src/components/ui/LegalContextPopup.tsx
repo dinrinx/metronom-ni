@@ -28,7 +28,7 @@ export function LegalContextPopup({ card }: { card: LegalCard }) {
       <p className="mt-2 text-card-title text-ink">{card.question}</p>
       <p className="mt-2 text-body text-text-secondary">{card.answer}</p>
       <div className="mt-4 flex gap-2">
-        <Link href={`/legal?card=${card.id}`} className="flex-1" onClick={dismiss}>
+        <Link href={`/ni/legal?card=${card.id}`} className="flex-1" onClick={dismiss}>
           <Button fullWidth variant="secondary">
             Подробнее
           </Button>

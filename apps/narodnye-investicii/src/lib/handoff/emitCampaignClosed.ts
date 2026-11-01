@@ -1,5 +1,5 @@
 import type { BusinessProfile, Campaign } from "@/types";
-import { type CampaignClosed, writeHandoff } from "./campaign-closed";
+import { type CampaignClosed, writeHandoff } from "@m/lib/handoff/campaign-closed";
 
 function isCompleteCampaign(campaign: Partial<Campaign>): campaign is Campaign {
   return (

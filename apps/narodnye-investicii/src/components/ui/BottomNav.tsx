@@ -5,11 +5,11 @@ import Link from "next/link";
 export type NavTab = "main" | "history" | "payments" | "storefront" | "chats";
 
 const TABS: { key: NavTab; label: string; href: string }[] = [
-  { key: "main", label: "Главный", href: "/dashboard" },
-  { key: "history", label: "История", href: "/history" },
-  { key: "payments", label: "Платежи", href: "/campaigns" },
-  { key: "storefront", label: "Витрина", href: "/storefront" },
-  { key: "chats", label: "Чаты", href: "/chats" },
+  { key: "main", label: "Главный", href: "/ni/dashboard" },
+  { key: "history", label: "История", href: "/ni/history" },
+  { key: "payments", label: "Платежи", href: "/ni/campaigns" },
+  { key: "storefront", label: "Витрина", href: "/ni/storefront" },
+  { key: "chats", label: "Чаты", href: "/ni/chats" },
 ];
 
 export function BottomNav({ active }: { active: NavTab }) {

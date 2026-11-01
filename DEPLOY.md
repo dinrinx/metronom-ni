@@ -1,47 +1,48 @@
 # Деплой на Vercel
 
-Один домен, две зоны (Multi-Zones): Метроном на `/`, «Народные инвестиции» (НИ) на `/ni`.
-В Vercel это **два проекта** из одного репозитория.
+Метроном (`/`) и «Народные инвестиции» (`/ni`) — **одно Next-приложение** в `apps/narodnye-investicii`:
+один Vercel-проект, один домен, без прокси и переадресаций.
 
-## 1. Проект НИ (создаётся первым)
+## Устройство
+
+- `src/app/(metronom)/` — корневой layout Метронома (маршруты `/`, `/login`, `/campaign-handoff` и т. д. через catch-all `[...slug]`), код — в `src/metronom/` (алиас `@m/*`).
+- `src/app/(ni)/ni/` — «Народные инвестиции» под префиксом `/ni`, свой корневой layout, Tailwind и шрифты. Стили зон не пересекаются: у каждой группы свой корневой layout и свой CSS.
+- `src/app/api/gigachat/` — API Метронома.
+- Передача сбора между зонами идёт через `localStorage` (`handoff:campaign-closed`) на одном origin.
+
+## Проект на Vercel
 
 - Root Directory: `apps/narodnye-investicii`
-- Framework: Next.js (определяется сам), Install: `npm ci`, Build: `npm run build`
-- Переменных окружения нет.
-- `basePath: "/ni"` уже в `next.config.ts`, так что страницы и `/ni/_next/...` отдаются под `/ni`.
-- Домен проекта по умолчанию (`<имя>.vercel.app`) нужен только как адрес для Метронома, пользователям его не показываем.
-
-## 2. Проект Метронома (основной, на нём пользовательский домен)
-
-- Root Directory: `apps/metronom`
 - Framework: Next.js, Install: `npm ci`, Build: `npm run build`
 - Environment Variables (Production и Preview):
 
 | Переменная | Значение |
 | --- | --- |
-| `NI_ORIGIN` | URL проекта НИ, например `https://narodnye-investicii.vercel.app` (без `/ni` и без `/` на конце) |
 | `NEXT_PUBLIC_LLM_MODE` | `auto` |
 | `GIGACHAT_AUTH_KEY` | только если нужны живые ответы GigaChat |
 | `GIGACHAT_SCOPE` | `GIGACHAT_API_PERS` |
 | `GIGACHAT_MODEL` | `GigaChat-3-Ultra` |
 
-- `NI_ORIGIN` читается **на сборке** (rewrites запекаются в билд). Поменяли значение — пересоберите проект Метронома. Без него сборка на Vercel падает с понятной ошибкой.
-- Пользовательский домен привязывайте только к проекту Метронома.
+`NI_ORIGIN` и `METRONOM_ORIGIN` больше не нужны — их можно удалить. Отдельный проект Метронома (`metronom-final`) тоже не нужен.
 
-## 3. Порядок
+## Проверка после деплоя
 
-1. Задеплоить НИ, скопировать его URL.
-2. Прописать `NI_ORIGIN` в Метрономе и задеплоить его.
-3. Проверить:
-   - `https://<домен>/` — Метроном;
-   - `https://<домен>/ni` и `/ni/campaigns` — НИ со стилями и шрифтами;
-   - закрыть сбор в `/ni/campaigns/<id>` → редирект на `/campaign-handoff` → подтверждение → главная Метронома.
+- `/` — Метроном, `/campaign-handoff` — экран приёмки;
+- `/ni`, `/ni/campaigns` — НИ; `/ni/что-угодно` — 404;
+- закрыть сбор в `/ni/campaigns/<id>` → приёмка → подтверждение → главная Метронома.
 
-## 4. Важно знать
+## Локально
 
-- Передача данных между зонами идёт через `localStorage` (`handoff:campaign-closed`), поэтому зоны обязаны открываться с **одного домена**. На разных поддоменах и `*.vercel.app` каждой зоны данные не передадутся.
-- Переходы между зонами — только через `window.location`, не `next/link`.
-- Preview-деплои: `NI_ORIGIN` для Preview можно указать на preview-URL НИ той же ветки.
-- Локальная проверка как на проде: `npm run build` в обеих папках, затем `next start -p 3001` в НИ и `NI_ORIGIN=http://localhost:3001 next start -p 3000` в Метрономе.
-- Жёстко зашитые демо-данные (`850 000 ₽` в `lib/industry/profiles.ts` и стартовые суммы в `lib/demo/fixtures.ts`) — это прототип, а не баг деплоя.
-- Устаревшее в `apps/metronom/README.md`: «Keep the root directory as the repository root» — теперь Root Directory задаётся для каждого проекта отдельно, как выше.
+```bash
+cd apps/narodnye-investicii
+npm ci
+npm run dev        # http://localhost:3000
+npm run lint && npm run typecheck && npm run test && npm run build
+npm run test:e2e   # поднимает dev-сервер на 127.0.0.1:3000
+```
+
+## Заметки
+
+- `reactStrictMode: false` в `next.config.ts`: в dev двойной запуск эффектов затирает сохранённое состояние НИ (`AppStateProvider`). На проде этого нет.
+- `typecheck` гоняет две конфигурации: обычную и строгую `tsconfig.metronom.json` для кода Метронома (`noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`).
+- Жёстко зашитые демо-данные (`850 000 ₽` в `src/metronom/lib/industry/profiles.ts`, стартовые суммы в `src/metronom/lib/demo/fixtures.ts`) — прототип, а не ошибка деплоя.
