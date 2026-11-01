@@ -4,7 +4,7 @@ function IconBase(props: SVGProps<SVGSVGElement>) {
   return <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" {...props} />;
 }
 
-export function MetronomeGlyph({ color = "#EF3124", armColor = color }: { color?: string; armColor?: string }) {
+export function MetronomeGlyph({ color = "var(--brand-primary)", armColor = color }: { color?: string; armColor?: string }) {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
       <path d="M7 17h6l-2.2-14h-1.6L7 17Z" stroke={color} strokeWidth="1.5" strokeLinejoin="round" />

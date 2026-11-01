@@ -10,7 +10,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     <div>
       <div
         className={`flex items-center rounded-md bg-surface px-4 py-[18px] ${
-          error ? "ring-2 ring-red" : "focus-within:ring-2 focus-within:ring-ink"
+          error ? "ring-2 ring-danger" : "focus-within:ring-2 focus-within:ring-ink"
         }`}
       >
         <input
@@ -20,7 +20,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         />
         {suffix && <span className="ml-2 shrink-0 text-[15px] text-text-secondary">{suffix}</span>}
       </div>
-      {error && <p className="mt-1.5 text-caption text-red">{error}</p>}
+      {error && <p className="mt-1.5 text-caption text-danger">{error}</p>}
     </div>
   ),
 );

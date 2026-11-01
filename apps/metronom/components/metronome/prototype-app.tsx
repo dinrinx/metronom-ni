@@ -444,7 +444,7 @@ function IntroScreen({ goTo, viewModel }: Pick<ScreenProps, "goTo" | "viewModel"
     <div className="screen-body">
       <BackHeader onBack={() => goTo("home_entry", false)} />
       <div className="brand-row">
-        <span className="brand-glyph"><MetronomeGlyph color="#ef3124" /></span>
+        <span className="brand-glyph"><MetronomeGlyph color="var(--brand-primary)" /></span>
         <span className="brand-copy">
           <strong>Метроном</strong>
           <small>Держу бизнес в ритме</small>
@@ -1282,7 +1282,7 @@ function ProcessingScreen({ state, dispatchRouteAction }: Pick<ScreenProps, "sta
         <div className={`processing-ring-core ${progress >= 1 ? "processing-ring-core-complete" : ""}`}>
           <span className={`processing-ring-glyph ${progress >= 1 ? "processing-ring-glyph-complete" : ""}`}>
             <MetronomeGlyph
-              armColor={progress >= 1 ? "#1D1D1B" : "#EF3124"}
+              armColor={progress >= 1 ? "#1D1D1B" : "var(--brand-primary)"}
               color={progress >= 1 ? "#8FEE52" : "#1D1D1B"}
             />
           </span>

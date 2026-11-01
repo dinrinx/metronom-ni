@@ -24,7 +24,7 @@ export function RiskBanner({ daysAway, advice }: { daysAway: number | null; advi
         </div>
       </div>
       {advice && <p className="mt-3 text-body text-text-secondary">{advice}</p>}
-      <Link href="/crisis" className="mt-3 inline-block text-caption font-semibold text-red underline underline-offset-4">
+      <Link href="/crisis" className="mt-3 inline-block text-caption font-semibold text-danger underline underline-offset-4">
         Посмотреть рекомендацию →
       </Link>
     </div>
