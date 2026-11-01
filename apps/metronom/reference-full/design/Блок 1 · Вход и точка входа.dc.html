@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EDEDEA;font-family:"Golos Text",-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#EF3124;text-decoration:none}a:hover{color:#c8261c}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(3px)}}
+@keyframes pulseTick{0%{transform:scale(.9);opacity:.4}100%{transform:scale(1);opacity:1}}
+@keyframes metroSwing{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(16deg)}}
+::-webkit-scrollbar{width:0;height:0}
+</style>
+</helmet>
+
+<div style="padding:56px 60px 80px;min-width:2000px">
+
+  <div style="max-width:1180px;margin:0 0 44px">
+    <div style="display:inline-block;font:700 12px/1 'Golos Text',sans-serif;letter-spacing:.16em;color:#EF3124;text-transform:uppercase;margin-bottom:18px">Контур доверия · Вход</div>
+    <h1 style="margin:0 0 14px;font:800 46px/54px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.02em;text-wrap:pretty">Вход в Альфа-Бизнес и запуск Метронома — 4 экрана</h1>
+    <p style="margin:0;max-width:840px;font:400 17px/26px 'Golos Text',sans-serif;color:#505759;text-wrap:pretty">Блок 1 сценария: предприниматель уже открыл бизнес и завершил кампанию в «Народных инвестициях». Онбординга нет — только вход, главный экран и запуск Метронома через карточку, который забирает данные кампании в Блок 2.</p>
+    <div style="display:flex;gap:10px;align-items:center;margin-top:22px;flex-wrap:wrap">
+      <span style="font:500 13px/1 'Golos Text',sans-serif;color:#505759">Профиль прототипа:</span>
+      <sc-for list="{{ profiles }}" as="p" hint-placeholder-count="3">
+        <button onClick="{{ p.pick }}" style="border:none;cursor:pointer;padding:9px 16px;border-radius:999px;font:600 13px/1 'Golos Text',sans-serif;background:{{ p.chipBg }};color:{{ p.chipFg }}">{{ p.chipLabel }}</button>
+      </sc-for>
+      <span style="width:1px;height:22px;background:#D9D9D6;margin:0 6px"></span>
+      <span style="font:500 13px/1 'Golos Text',sans-serif;color:#505759">Экран 1:</span>
+      <button onClick="{{ toggleError }}" style="border:1px solid #D9D9D6;cursor:pointer;padding:9px 16px;border-radius:999px;font:600 13px/1 'Golos Text',sans-serif;background:#fff;color:#1D1D1B">{{ errToggleLabel }}</button>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:52px;align-items:flex-start">
+
+    <!-- ================= 0 · DEMO PICKER ================= -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:5">
+          <span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span>
+          <span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span>
+          <span style="display:flex;gap:6px;align-items:center">
+            <svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 10.5 5.6 8.1a3.4 3.4 0 0 1 4.8 0L8 10.5Zm0-5.2a6.4 6.4 0 0 0-4.5 1.9L1.8 5.5a8.8 8.8 0 0 1 12.4 0l-1.7 1.7A6.4 6.4 0 0 0 8 5.3Z" fill="#1D1D1B"/></svg>
+            <svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg>
+          </span>
+        </div>
+
+        <div style="padding:76px 24px 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column">
+          <div style="text-align:center;padding:0 6px 26px">
+            <div style="font:700 11px/1 'Golos Text',sans-serif;letter-spacing:.14em;color:#EF3124;text-transform:uppercase;margin-bottom:14px">Демо-режим</div>
+            <h2 style="margin:0 0 10px;font:700 26px/32px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.01em">Выбери профиль</h2>
+            <p style="margin:0;font:400 14px/20px 'Golos Text',sans-serif;color:#505759;text-wrap:pretty">Один и тот же Метроном в трёх отраслях. Данные меняются — логика одна.</p>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ profiles }}" as="p" hint-placeholder-count="3">
+              <button onClick="{{ p.pick }}" style="width:100%;text-align:left;cursor:pointer;display:flex;align-items:center;gap:14px;padding:18px 16px;border-radius:20px;background:{{ p.cardBg }};border:{{ p.cardBorder }};font-family:'Golos Text',sans-serif">
+                <span style="width:48px;height:48px;flex:none;border-radius:999px;display:flex;align-items:center;justify-content:center;background:{{ p.avatarBg }};color:{{ p.avatarFg }};font:700 19px/1 'Golos Text',sans-serif">{{ p.initial }}</span>
+                <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px">
+                  <span style="font:600 16px/20px 'Golos Text',sans-serif;color:#1D1D1B">{{ p.pickerTitle }}</span>
+                  <span style="font:400 13px/16px 'Golos Text',sans-serif;color:#505759">{{ p.slug }}</span>
+                </span>
+                <span style="flex:none;display:flex" dangerouslySetInnerHTML="{{ icoChevron }}"></span>
+              </button>
+            </sc-for>
+          </div>
+
+          <div style="margin-top:auto;padding:18px 8px 30px;display:flex;align-items:flex-start;gap:10px">
+            <span style="flex:none;display:flex;margin-top:1px" dangerouslySetInnerHTML="{{ icoInfo }}"></span>
+            <span style="font:400 12px/17px 'Golos Text',sans-serif;color:#505759">Служебный экран прототипа. В реальном продукте его нет — пользователь попадает сразу на вход.</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">0 · Выбор демо-профиля</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> карточки-факты со скруглением, чёрная типографика.</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> служебный экран прототипа для переключения отрасли — в реальном продукте отсутствует; показывает, что UX единый, различаются только данные.</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">B1_S0_demo-picker</div>
+      </div>
+    </div>
+
+    <!-- ================= 1 · LOGIN ================= -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:5">
+          <span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span>
+          <span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span>
+          <span style="display:flex;gap:6px;align-items:center">
+            <svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 10.5 5.6 8.1a3.4 3.4 0 0 1 4.8 0L8 10.5Zm0-5.2a6.4 6.4 0 0 0-4.5 1.9L1.8 5.5a8.8 8.8 0 0 1 12.4 0l-1.7 1.7A6.4 6.4 0 0 0 8 5.3Z" fill="#1D1D1B"/></svg>
+            <svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg>
+          </span>
+        </div>
+
+        <div style="padding:82px 26px 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column">
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding-bottom:30px">
+            <span style="width:72px;height:72px;border-radius:999px;background:#EF3124;color:#fff;display:flex;align-items:center;justify-content:center;font:700 28px/1 'Golos Text',sans-serif">{{ initial }}</span>
+            <div>
+              <h2 style="margin:0 0 6px;font:700 25px/30px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.01em">{{ greeting }}</h2>
+              <div style="font:400 14px/18px 'Golos Text',sans-serif;color:#505759">{{ businessLine }}</div>
+            </div>
+            <div style="font:400 14px/20px 'Golos Text',sans-serif;color:#505759;max-width:280px;text-wrap:pretty">Введи логин и пароль от Альфа-Бизнес</div>
+          </div>
+
+          <sc-if value="{{ loginOk }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="padding:16px 18px;border-radius:12px;background:#F4F5F7">
+                <div style="font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:#505759;text-transform:uppercase;margin-bottom:8px">Логин</div>
+                <div style="font:500 16px/20px 'Golos Text',sans-serif;color:#1D1D1B">{{ login }}</div>
+              </div>
+              <div style="padding:16px 18px;border-radius:12px;background:#F4F5F7;display:flex;align-items:flex-end;justify-content:space-between">
+                <div>
+                  <div style="font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:#505759;text-transform:uppercase;margin-bottom:8px">Пароль</div>
+                  <div style="font:700 16px/20px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:.22em">••••••••</div>
+                </div>
+                <span style="display:flex" dangerouslySetInnerHTML="{{ icoEye }}"></span>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ loginErr }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:12px;animation:shake .45s ease">
+              <div style="padding:16px 18px;border-radius:12px;background:#F4F5F7">
+                <div style="font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:#505759;text-transform:uppercase;margin-bottom:8px">Логин</div>
+                <div style="font:500 16px/20px 'Golos Text',sans-serif;color:#1D1D1B">{{ login }}</div>
+              </div>
+              <div style="padding:16px 18px;border-radius:12px;background:#F4F5F7;box-shadow:inset 0 0 0 2px #EF3124;display:flex;align-items:flex-end;justify-content:space-between">
+                <div>
+                  <div style="font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:#EF3124;text-transform:uppercase;margin-bottom:8px">Пароль</div>
+                  <div style="font:700 16px/20px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:.22em">••••••</div>
+                </div>
+                <span style="display:flex" dangerouslySetInnerHTML="{{ icoEyeErr }}"></span>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;padding:0 4px">
+                <span style="display:flex;flex:none" dangerouslySetInnerHTML="{{ icoDanger }}"></span>
+                <span style="font:500 13px/18px 'Golos Text',sans-serif;color:#EF3124">Неверный логин или пароль. Повторить вход</span>
+              </div>
+            </div>
+          </sc-if>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 4px 0">
+            <span style="font:500 13px/1 'Golos Text',sans-serif;color:#505759">Забыли пароль?</span>
+            <span style="font:600 13px/1 'Golos Text',sans-serif;color:#EF3124">Восстановить</span>
+          </div>
+
+          <div style="margin-top:auto;padding-bottom:34px;display:flex;flex-direction:column;gap:14px">
+            <button onClick="{{ submitLogin }}" style="width:100%;padding:19px;border:none;border-radius:999px;background:#1D1D1B;color:#fff;font:600 16px/1 'Golos Text',sans-serif;cursor:pointer">{{ loginCta }}</button>
+            <div style="text-align:center;font:400 12px/17px 'Golos Text',sans-serif;color:rgba(29,29,27,.45)">Вход только по логину и паролю — биометрия отключена в демо</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">1 · Вход по логину и паролю</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> поля на grey/100, чёрная pill-кнопка, красный только в акценте ошибки.</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> биометрия намеренно убрана (демо + требование сценария); состояние ошибки = «Повторить вход» прямо на этом экране, без отдельного шага.</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">B1_S1_passcode · _default / _error</div>
+      </div>
+    </div>
+
+    <!-- ================= 2 · HOME ================= -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:6;background:#fff">
+          <span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span>
+          <span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span>
+          <span style="display:flex;gap:6px;align-items:center">
+            <svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 10.5 5.6 8.1a3.4 3.4 0 0 1 4.8 0L8 10.5Zm0-5.2a6.4 6.4 0 0 0-4.5 1.9L1.8 5.5a8.8 8.8 0 0 1 12.4 0l-1.7 1.7A6.4 6.4 0 0 0 8 5.3Z" fill="#1D1D1B"/></svg>
+            <svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg>
+          </span>
+        </div>
+
+        <div style="position:absolute;inset:54px 0 92px 0;overflow-y:auto;padding:8px 20px 24px">
+          <!-- header -->
+          <div style="display:flex;align-items:center;gap:12px;padding:8px 2px 20px">
+            <span style="width:46px;height:46px;flex:none;border-radius:999px;background:#EF3124;color:#fff;display:flex;align-items:center;justify-content:center;font:700 18px/1 'Golos Text',sans-serif">{{ initial }}</span>
+            <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px">
+              <span style="font:400 13px/16px 'Golos Text',sans-serif;color:#505759">Привет, {{ name }}</span>
+              <span style="display:flex;flex-direction:column;align-items:flex-start;gap:5px">
+                <span style="font:700 16px/20px 'Golos Text',sans-serif;color:#1D1D1B;text-wrap:pretty">{{ business }}</span>
+                <span style="padding:4px 8px;border-radius:8px;background:#8FEE52;font:600 10px/1 'Golos Text',sans-serif;color:#1D1D1B">{{ legalForm }}</span>
+              </span>
+            </span>
+            <span style="position:relative;width:44px;height:44px;flex:none;border-radius:999px;background:#F4F5F7;display:flex;align-items:center;justify-content:center">
+              <span style="display:flex" dangerouslySetInnerHTML="{{ icoBell }}"></span>
+              <span style="position:absolute;top:9px;right:11px;width:9px;height:9px;border-radius:999px;background:#EF3124;border:2px solid #F4F5F7"></span>
+            </span>
+          </div>
+
+          <!-- hero balance -->
+          <div style="padding:2px 2px 18px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+              <span style="font:400 13px/1 'Golos Text',sans-serif;color:#505759">На всех счетах</span>
+              <span style="display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;background:#F4F5F7;font:600 11px/1 'Golos Text',sans-serif;color:#505759">Мультибанк
+                <span style="display:flex" dangerouslySetInnerHTML="{{ icoCaret }}"></span>
+              </span>
+            </div>
+            <div style="font:800 42px/48px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.025em">{{ balance }}</div>
+            <div style="display:inline-flex;align-items:center;gap:9px;margin-top:14px;padding:10px 14px;border-radius:999px;background:#F4F5F7;border:1px dashed #D9D9D6">
+              <span style="display:flex;flex:none" dangerouslySetInnerHTML="{{ icoLock }}"></span>
+              <span style="display:flex;flex-direction:column;gap:2px">
+                <span style="font:600 13px/1 'Golos Text',sans-serif;color:#505759">Действительно свободно: ••••• ₽</span>
+                <span style="font:400 11px/1 'Golos Text',sans-serif;color:rgba(29,29,27,.45)">Открой Метроном, чтобы узнать</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- quick actions -->
+          <div style="display:flex;gap:8px;padding:2px 0 20px">
+            <sc-for list="{{ actions }}" as="a" hint-placeholder-count="4">
+              <span style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding:13px 4px;border-radius:20px;background:#F4F5F7">
+                <span style="display:flex" dangerouslySetInnerHTML="{{ a.icon }}"></span>
+                <span style="font:500 11px/1 'Golos Text',sans-serif;color:#1D1D1B">{{ a.label }}</span>
+              </span>
+            </sc-for>
+          </div>
+
+          <!-- METRONOME CTA -->
+          <div style="border-radius:26px;background:#1D1D1B;padding:20px;margin-bottom:14px;position:relative;overflow:hidden">
+            <span style="position:absolute;right:-30px;top:-30px;width:150px;height:150px;border-radius:999px;background:rgba(239,49,36,.16)"></span>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;position:relative">
+              <span style="display:inline-flex;width:22px;height:22px;align-items:center;justify-content:center">
+                <svg width="20" height="20" viewBox="0 0 20 20"><path d="M7 17h6l-2.2-14h-1.6L7 17Z" stroke="#EF3124" stroke-width="1.5" fill="none" stroke-linejoin="round"/><path d="M4.5 17h11" stroke="#EF3124" stroke-width="1.5" stroke-linecap="round"/><path d="M10 12.5 13 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" style="transform-origin:10px 13px;animation:metroSwing 1.6s ease-in-out infinite"/></svg>
+              </span>
+              <span style="font:700 11px/1 'Golos Text',sans-serif;letter-spacing:.16em;color:#fff;text-transform:uppercase">Метроном</span>
+              <span style="padding:4px 8px;border-radius:999px;background:#EF3124;color:#fff;font:700 9px/1 'Golos Text',sans-serif;letter-spacing:.08em">AI</span>
+            </div>
+            <div style="position:relative;font:700 20px/26px 'Golos Text',sans-serif;color:#fff;margin-bottom:8px;text-wrap:pretty">Кампания завершена. Собрать финансы в одно состояние</div>
+            <div style="position:relative;font:400 13px/19px 'Golos Text',sans-serif;color:rgba(255,255,255,.62);margin-bottom:18px;text-wrap:pretty">Найду обязательства и покажу, сколько денег действительно свободно</div>
+            <button onClick="{{ openMetronome }}" style="position:relative;width:100%;padding:15px;border:none;border-radius:999px;background:#fff;color:#1D1D1B;font:600 15px/1 'Golos Text',sans-serif;cursor:pointer">Открыть Метроном →</button>
+          </div>
+
+          <!-- campaign card -->
+          <div style="border-radius:24px;background:#F4F5F7;padding:18px;margin-bottom:14px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+              <span style="font:700 10px/1 'Golos Text',sans-serif;letter-spacing:.14em;color:#EF3124;text-transform:uppercase">Народные инвестиции</span>
+              <span style="padding:5px 9px;border-radius:999px;background:#8FEE52;color:#1D1D1B;font:600 10px/1 'Golos Text',sans-serif">Кампания завершена</span>
+            </div>
+            <div style="font:600 17px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:14px">{{ campaign }}</div>
+            <div style="height:8px;border-radius:999px;background:#D9D9D6;overflow:hidden;margin-bottom:10px">
+              <span style="display:block;height:100%;width:100%;border-radius:999px;background:#1D1D1B"></span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="font:500 13px/1 'Golos Text',sans-serif;color:#505759">Собрано {{ raised }} · {{ backers }} бэкеров</span>
+              <span style="font:700 13px/1 'Golos Text',sans-serif;color:#1D1D1B">100%</span>
+            </div>
+          </div>
+
+          <!-- trust rating -->
+          <div style="border-radius:24px;background:#F4F5F7;padding:16px 18px;display:flex;align-items:center;gap:14px">
+            <span style="position:relative;width:52px;height:52px;flex:none;border-radius:999px;background:conic-gradient(#EF3124 0 70%,#D9D9D6 70% 100%);display:flex;align-items:center;justify-content:center">
+              <span style="width:38px;height:38px;border-radius:999px;background:#F4F5F7;display:flex;align-items:center;justify-content:center;font:700 12px/1 'Golos Text',sans-serif;color:#1D1D1B">70%</span>
+            </span>
+            <span style="flex:1;display:flex;flex-direction:column;gap:4px">
+              <span style="font:600 15px/19px 'Golos Text',sans-serif;color:#1D1D1B">Активный бизнесмен</span>
+              <span style="font:400 12px/16px 'Golos Text',sans-serif;color:#505759">до «Надёжного партнёра» — 70%</span>
+            </span>
+            <span style="flex:none;display:flex" dangerouslySetInnerHTML="{{ icoChevron }}"></span>
+          </div>
+        </div>
+
+        <!-- tab bar -->
+        <div style="position:absolute;left:12px;right:12px;bottom:12px;height:74px;border-radius:30px;background:#fff;border:1px solid #D9D9D6;box-shadow:0 8px 26px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 14px">
+          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+            <span style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px">
+              <span style="color:{{ t.color }};display:flex" dangerouslySetInnerHTML="{{ t.icon }}"></span>
+              <span style="font:500 10px/1 'Golos Text',sans-serif;color:{{ t.color }}">{{ t.label }}</span>
+            </span>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">2 · Главный экран Альфа-Бизнес</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> серые карточки-факты, зелёные статус-бейджи, круговая шкала рейтинга, нижнее меню — как в прототипе.</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> геро-баланс поднят наверх (раньше был внизу как «Текущий счёт»), тизер-чип «Действительно свободно: •••••» готовит раскрытие в Метрономе, добавлена тёмная карточка-CTA Метронома как главное действие, карточка кампании показана в состоянии «завершена» со 100% прогрессом.</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">{{ homeFrameName }}</div>
+      </div>
+    </div>
+
+    <!-- ================= 3 · IMPORT ================= -->
+    <div style="width:392px;flex:none">
+      <div style="width:392px;height:812px;border:11px solid #111110;border-radius:56px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.16)">
+        <div style="position:absolute;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;z-index:5">
+          <span style="font:600 15px/1 'Golos Text',sans-serif;color:#1D1D1B">9:41</span>
+          <span style="position:absolute;left:50%;top:9px;transform:translateX(-50%);width:104px;height:30px;border-radius:999px;background:#111110"></span>
+          <span style="display:flex;gap:6px;align-items:center">
+            <svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#1D1D1B"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="#1D1D1B"/><rect x="10" y="3" width="3" height="9" rx="1" fill="#1D1D1B"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#1D1D1B"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 10.5 5.6 8.1a3.4 3.4 0 0 1 4.8 0L8 10.5Zm0-5.2a6.4 6.4 0 0 0-4.5 1.9L1.8 5.5a8.8 8.8 0 0 1 12.4 0l-1.7 1.7A6.4 6.4 0 0 0 8 5.3Z" fill="#1D1D1B"/></svg>
+            <svg width="26" height="12" viewBox="0 0 26 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#1D1D1B" fill="none" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#1D1D1B"/><path d="M23 4v4a2.4 2.4 0 0 0 0-4Z" fill="#1D1D1B" opacity=".4"/></svg>
+          </span>
+        </div>
+
+        <div style="padding:70px 22px 0;height:100%;box-sizing:border-box;display:flex;flex-direction:column">
+          <div style="display:flex;align-items:center;gap:11px;padding:0 2px 22px">
+            <span style="width:40px;height:40px;border-radius:14px;background:#1D1D1B;display:flex;align-items:center;justify-content:center">
+              <svg width="20" height="20" viewBox="0 0 20 20"><path d="M7 17h6l-2.2-14h-1.6L7 17Z" stroke="#EF3124" stroke-width="1.5" fill="none" stroke-linejoin="round"/><path d="M4.5 17h11" stroke="#EF3124" stroke-width="1.5" stroke-linecap="round"/><path d="M10 12.5 13 6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" style="transform-origin:10px 13px;animation:metroSwing 1.6s ease-in-out infinite"/></svg>
+            </span>
+            <span style="display:flex;flex-direction:column;gap:3px">
+              <span style="font:700 12px/1 'Golos Text',sans-serif;letter-spacing:.16em;color:#1D1D1B;text-transform:uppercase">Метроном</span>
+              <span style="font:400 12px/1 'Golos Text',sans-serif;color:#505759">Держу бизнес в ритме</span>
+            </span>
+          </div>
+
+          <sc-if value="{{ importing }}" hint-placeholder-val="{{ false }}">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding-bottom:80px">
+              <span style="width:96px;height:96px;border-radius:999px;background:#F4F5F7;display:flex;align-items:center;justify-content:center">
+                <svg width="44" height="44" viewBox="0 0 20 20"><path d="M7 17h6l-2.2-14h-1.6L7 17Z" stroke="#1D1D1B" stroke-width="1.2" fill="none" stroke-linejoin="round"/><path d="M10 12.5 13 6" stroke="#EF3124" stroke-width="1.4" stroke-linecap="round" style="transform-origin:10px 13px;animation:metroSwing .7s ease-in-out infinite"/></svg>
+              </span>
+              <span style="font:500 14px/20px 'Golos Text',sans-serif;color:#505759">Забираю данные кампании…</span>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ imported }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;flex:1">
+              <h2 style="margin:0 0 6px;font:700 25px/31px 'Golos Text',sans-serif;color:#1D1D1B;letter-spacing:-.015em;padding:0 2px">Забрал из «Народных инвестиций»</h2>
+              <p style="margin:0 0 18px;font:400 14px/20px 'Golos Text',sans-serif;color:#505759;padding:0 2px">Кампания «{{ campaign }}» закрыта — данные подтянуты автоматически</p>
+
+              <div style="border-radius:24px;background:#F4F5F7;padding:6px 16px">
+                <sc-for list="{{ importRows }}" as="r" hint-placeholder-count="5">
+                  <span style="display:flex;align-items:center;gap:12px;padding:15px 0;border-bottom:1px solid rgba(0,0,0,.06);animation:pulseTick .4s ease both">
+                    <span style="flex:none;display:flex" dangerouslySetInnerHTML="{{ icoTick }}"></span>
+                    <span style="flex:1;font:400 14px/19px 'Golos Text',sans-serif;color:#505759">{{ r.label }}</span>
+                    <span style="font:600 14px/19px 'Golos Text',sans-serif;color:#1D1D1B;text-align:right">{{ r.value }}</span>
+                  </span>
+                </sc-for>
+              </div>
+
+              <div style="display:flex;gap:9px;align-items:flex-start;padding:16px 6px 0">
+                <span style="flex:none;display:flex;margin-top:1px" dangerouslySetInnerHTML="{{ icoInfo }}"></span>
+                <span style="font:400 12px/17px 'Golos Text',sans-serif;color:#505759">Дальше подключим счёт, эквайринг и документы</span>
+              </div>
+
+              <div style="margin-top:auto;padding-bottom:34px">
+                <button style="width:100%;padding:19px;border:none;border-radius:999px;background:#1D1D1B;color:#fff;font:600 16px/1 'Golos Text',sans-serif;cursor:pointer">Собрать финансовую сводку →</button>
+                <div style="text-align:center;padding-top:12px;font:400 11px/16px 'Golos Text',sans-serif;color:rgba(29,29,27,.45)">Дальше — Блок 2 · Первая финансовая сборка</div>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+
+      <div style="margin-top:22px;width:392px">
+        <div style="font:700 15px/22px 'Golos Text',sans-serif;color:#1D1D1B;margin-bottom:8px">3 · Импорт из кампании</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759;margin-bottom:6px"><span style="font-weight:600;color:#1D1D1B">Установленный стиль:</span> карточка-список с зелёными галочками «подтверждено», чёрная кнопка.</div>
+        <div style="font:400 13px/19px 'Golos Text',sans-serif;color:#505759"><span style="font-weight:600;color:#1D1D1B">Новое:</span> брендовый экран Метронома, который наследует данные завершённой кампании и передаёт их в первую сводку — визуально показывает связку «Народные инвестиции → Метроном».</div>
+        <div style="margin-top:12px;font:500 11px/1 'Golos Text',sans-serif;letter-spacing:.06em;color:rgba(29,29,27,.45)">{{ importFrameName }}</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:2000,&quot;height&quot;:1200}}">
+const DATA = [
+  {key:'artem', name:'Артём', initial:'А', business:'Кофейня «На колёсах»', legalForm:'ИП', slug:'coffee-to-go', pickerTitle:'Артём · кофейня to-go',
+   campaign:'Оборудование для кофейни', raised:'850 000 ₽', backers:120, rewards:'120 шт. · напитки, сертификаты, наборы', balance:'420 000 ₽',
+   login:'artem.k@alfa.biz', frame:'artem'},
+  {key:'katya', name:'Катя', initial:'К', business:'Beauty-студия', legalForm:'Самозанятая → ИП', slug:'бьюти', pickerTitle:'Катя · beauty-студия',
+   campaign:'Оборудование для кабинета', raised:'850 000 ₽', backers:90, rewards:'90 шт. · процедуры, абонементы', balance:'380 000 ₽',
+   login:'katya.m@alfa.biz', frame:'katya'},
+  {key:'maxim', name:'Максим', initial:'М', business:'Магазин', legalForm:'ИП', slug:'розница', pickerTitle:'Максим · магазин',
+   campaign:'Партия товара', raised:'850 000 ₽', backers:110, rewards:'110 шт. · товарные наборы', balance:'460 000 ₽',
+   login:'maxim.v@alfa.biz', frame:'maxim'}
+];
+
+let ICONS = null;
+
+const TAB_ICONS = ['IconlyBoldHome','IconlyLightTimeCircle','IconlyLightWallet','IconlyLightCategory','IconlyLightChat'];
+const ACTION_ICONS = ['IconlyLightScan','IconlyLightSend','IconlyLightPlus','IconlyLightMoreCircle'];
+
+const TABS = [
+  {label:'Главный', active:true},
+  {label:'История'},
+  {label:'Платежи'},
+  {label:'Витрина'},
+  {label:'Чаты'}
+];
+
+class Component extends DCLogic {
+  state = { idx: 0, err: false, importing: false };
+
+  componentDidMount(){
+    import('./ds/icon-data.js').then(m => { ICONS = m.default; this.forceUpdate(); }).catch(() => {});
+  }
+  ico(name, size, color){
+    const d = ICONS && ICONS[name];
+    if (!d) return { __html: '' };
+    return { __html: '<svg width="' + size + '" height="' + size + '" viewBox="' + d.viewBox +
+      '" fill="none" style="display:block;color:' + color + '">' + d.body + '</svg>' };
+  }
+
+  select(i){ this.setState({ idx: i, importing: true }); this.finish(); }
+  finish(){ clearTimeout(this._t); this._t = setTimeout(() => this.setState({ importing: false }), 1100); }
+  componentWillUnmount(){ clearTimeout(this._t); }
+
+  renderVals(){
+    const p = DATA[this.state.idx];
+    return {
+      profiles: DATA.map((d, i) => {
+        const on = i === this.state.idx;
+        return {
+          initial: d.initial, pickerTitle: d.pickerTitle, slug: d.slug,
+          chipLabel: d.name, chipBg: on ? '#1D1D1B' : '#fff', chipFg: on ? '#fff' : '#505759',
+          cardBg: on ? '#fff' : '#F4F5F7',
+          cardBorder: on ? '2px solid #EF3124' : '2px solid transparent',
+          avatarBg: on ? '#EF3124' : '#E3E5E8', avatarFg: on ? '#fff' : '#505759',
+          pick: () => this.select(i)
+        };
+      }),
+      name: p.name, initial: p.initial, business: p.business, legalForm: p.legalForm,
+      greeting: 'С возвращением, ' + p.name,
+      businessLine: p.business + ' · ' + p.legalForm,
+      login: p.login, balance: p.balance, campaign: p.campaign, raised: p.raised, backers: p.backers,
+      homeFrameName: 'B1_S2_home_' + p.frame,
+      importFrameName: 'B1_S3_import_' + p.frame,
+      loginErr: this.state.err, loginOk: !this.state.err,
+      loginCta: this.state.err ? 'Повторить вход' : 'Войти',
+      errToggleLabel: this.state.err ? 'Показать обычное состояние' : 'Показать ошибку входа',
+      toggleError: () => this.setState(s => ({ err: !s.err })),
+      submitLogin: () => this.setState(s => ({ err: !s.err })),
+      openMetronome: () => { this.setState({ importing: true }); this.finish(); },
+      importing: this.state.importing, imported: !this.state.importing,
+      icoChevron: this.ico('IconlyLightArrowRight', 18, 'rgba(29,29,27,.45)'),
+      icoInfo: this.ico('IconlyLightInfoSquare', 17, 'rgba(29,29,27,.45)'),
+      icoEye: this.ico('IconlyLightShow', 21, '#505759'),
+      icoEyeErr: this.ico('IconlyLightHide', 21, '#EF3124'),
+      icoDanger: this.ico('IconlyBoldDanger', 17, '#EF3124'),
+      icoBell: this.ico('IconlyLightNotification', 21, '#1D1D1B'),
+      icoCaret: this.ico('IconlyLightArrowDown2', 13, '#505759'),
+      icoLock: this.ico('IconlyLightLock', 17, '#505759'),
+      icoTick: this.ico('IconlyBoldTickSquare', 24, '#8FEE52'),
+      actions: ['Оплатить','Перевести','Пополнить','Ещё'].map((label, i) => ({
+        label, icon: this.ico(ACTION_ICONS[i], 22, '#1D1D1B')
+      })),
+      tabs: TABS.map((t, i) => ({
+        label: t.label, color: t.active ? '#EF3124' : 'rgba(29,29,27,.45)',
+        icon: this.ico(TAB_ICONS[i], 22, t.active ? '#EF3124' : 'rgba(29,29,27,.45)')
+      })),
+      importRows: [
+        {label:'Сумма сбора', value: p.raised},
+        {label:'Награды (rewards)', value: p.rewards},
+        {label:'Бэкеры', value: String(p.backers)},
+        {label:'Сроки исполнения обещаний', value:'Подтверждены'},
+        {label:'Себестоимость исполнения', value:'Подтверждена'}
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
