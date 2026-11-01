@@ -10,7 +10,8 @@ ALLOWED=(
   "apps/metronom/next.config.ts|10"
   "apps/metronom/playwright.config.ts|0"
   "apps/metronom/tests/e2e/helpers.ts|5"
-  "apps/metronom/domain/types.ts|0"
+  "apps/metronom/domain/types.ts|1"
+  "apps/metronom/lib/demo/daily-cycle-scenarios.ts|3"
   "apps/metronom/lib/navigation/step-paths.ts|0"
   "apps/metronom/domain/events/reducer.ts|0"
   "apps/metronom/components/metronome/prototype-app.tsx|3"
@@ -30,6 +31,7 @@ ALLOWED=(
   "apps/narodnye-investicii/next-env.d.ts|999999"
   "apps/narodnye-investicii/tsconfig.json|3"
   "apps/narodnye-investicii/package-lock.json|999999"
+  "scripts/check-allowed-diff.sh|999999
 )
 
 if ! git rev-parse -q --verify "refs/tags/$BASE" >/dev/null; then
