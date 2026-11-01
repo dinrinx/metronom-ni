@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix apps/metronom run dev -- --port 3000 & npm --prefix apps/narodnye-investicii run dev -- --port 3001 & wait"
+  }
+}

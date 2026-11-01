@@ -6,6 +6,18 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
+  async rewrites() {
+    return [
+      {
+        source: "/ni",
+        destination: "http://localhost:3001/ni",
+      },
+      {
+        source: "/ni/:path*",
+        destination: "http://localhost:3001/ni/:path*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
