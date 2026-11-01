@@ -28,6 +28,7 @@ import {
   TickSquareIcon,
   WalletOutlineIcon,
 } from "@/components/metronome/icons";
+import { CampaignHandoffScreen } from "@/components/metronome/campaign-handoff-screen";
 import { useDemoStore } from "@/lib/demo/store";
 import type { DemoStoreState } from "@/lib/demo/store";
 import type { DemoAction } from "@/domain/events/reducer";
@@ -2128,6 +2129,8 @@ function ScreenRenderer(props: ScreenProps) {
       return <TransferConfirmScreen dispatchRouteAction={props.dispatchRouteAction} goBack={props.goBack} state={props.state} />;
     case "rule_active":
       return <RuleActiveScreen state={props.state} goTo={props.goTo} />;
+    case "campaign_handoff":
+      return <CampaignHandoffScreen dispatch={props.state.dispatch} dispatchRouteAction={props.dispatchRouteAction} state={props.state} />;
     default:
       return null;
   }

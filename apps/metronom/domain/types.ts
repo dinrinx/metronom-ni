@@ -65,7 +65,8 @@ export type DemoStepId =
   | "fundraise_recommend"
   | "fundraise_compare"
   | "credit_history_unlock"
-  | "credit_history_products";
+  | "credit_history_products"
+  | "campaign_handoff";
 
 export type ObligationCategory =
   | "rent"

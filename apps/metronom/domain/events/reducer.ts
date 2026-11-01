@@ -4,6 +4,7 @@ import type {
   DemoState,
   DemoStepId,
   IndustryProfileId,
+  Obligation,
   ProposedAction,
   ReserveMode,
   SourceRef,
@@ -13,6 +14,7 @@ import { createEnvelopes, createInitialState, DEMO_NOW } from "@/lib/demo/fixtur
 import { authorizeAction } from "@/domain/policy/authorize-action";
 import { FALLBACK_EXPLANATIONS } from "@/lib/demo/fallback-responses";
 import { INDUSTRY_PROFILES } from "@/lib/industry/profiles";
+import { mergeBackerObligation, sumConfirmed } from "@/lib/handoff/applyCampaignClosed";
 
 export type DemoAction =
   | { type: "select_profile"; profileId: IndustryProfileId }
@@ -33,6 +35,7 @@ export type DemoAction =
   | { type: "save_reserve_format" }
   | { type: "confirm_transfer" }
   | { type: "set_llm_explanation"; text: string; source: "fallback" | "live" }
+  | { type: "apply_campaign_handoff"; campaignTitle: string; obligations: Obligation[] }
   | { type: "show_toast"; message: string | null }
   | { type: "reset_demo" };
 
@@ -384,6 +387,39 @@ export function demoReducer(state: DemoState, action: DemoAction): DemoState {
         llmExplanation: action.text,
         llmExplanationSource: action.source,
       };
+    case "apply_campaign_handoff": {
+      const backersTotal = sumConfirmed(action.obligations);
+      const recalculated = recalculateState(
+        {
+          ...state,
+          obligations: mergeBackerObligation(state.obligations, action.obligations),
+          campaignCommittedSlice: backersTotal,
+          envelopes: state.envelopes.map((envelope) =>
+            envelope.id === "env_backers"
+              ? { ...envelope, targetAmount: backersTotal, protectedAmount: backersTotal, statusLabel: "Обеспечен" }
+              : envelope,
+          ),
+        },
+        `Принят закрытый сбор «${action.campaignTitle}»`,
+      );
+
+      return pushStep(
+        {
+          ...recalculated,
+          envelopes: recalculated.envelopes.map((envelope) =>
+            envelope.id === "env_free"
+              ? { ...envelope, targetAmount: recalculated.safeToSpend, protectedAmount: recalculated.safeToSpend }
+              : envelope,
+          ),
+          auditTrail: addAudit(
+            recalculated,
+            "Принят закрытый сбор",
+            `Сбор «${action.campaignTitle}»: под награды бэкерам зарезервировано ${backersTotal} ₽.`,
+          ),
+        },
+        "safe_to_spend",
+      );
+    }
     case "show_toast":
       return {
         ...state,

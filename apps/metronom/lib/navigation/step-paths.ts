@@ -39,6 +39,7 @@ export const STEP_PATHS: Record<DemoStepId, string> = {
   fundraise_compare: "/cycle/fundraise/compare",
   credit_history_unlock: "/credit-history",
   credit_history_products: "/credit-history/products",
+  campaign_handoff: "/campaign-handoff",
 };
 
 const PATH_TO_STEP = new Map<string, DemoStepId>(
