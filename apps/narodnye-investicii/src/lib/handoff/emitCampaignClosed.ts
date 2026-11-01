@@ -29,7 +29,7 @@ export function emitCampaignClosed(campaign: Partial<Campaign>, activeProfile: B
     raisedAmount: (campaign.goalAmount * campaign.raisedPercent) / 100,
     supportersCount: campaign.supportersCount,
     status: toClosedStatus(campaign.status),
-    rewards: campaign.bonuses.map((title) => ({ title })),
+    rewards: campaign.bonuses.map((title) => ({ title, quantity: campaign.supportersCount })),
     closedAt: new Date().toISOString(),
   });
 }

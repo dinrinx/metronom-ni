@@ -1,6 +1,9 @@
 import path from "node:path";
 import type { NextConfig } from "next";
 
+// Адрес зоны «Народные инвестиции»; в продакшене задаётся переменной окружения.
+const niOrigin = process.env.NI_ORIGIN ?? "http://localhost:3001";
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   turbopack: {
@@ -10,11 +13,11 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/ni",
-        destination: "http://localhost:3001/ni",
+        destination: `${niOrigin}/ni`,
       },
       {
         source: "/ni/:path*",
-        destination: "http://localhost:3001/ni/:path*",
+        destination: `${niOrigin}/ni/:path*`,
       },
     ];
   },

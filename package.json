@@ -1,6 +1,6 @@
 {
   "private": true,
   "scripts": {
-    "dev": "npm --prefix apps/metronom run dev -- --port 3000 & npm --prefix apps/narodnye-investicii run dev -- --port 3001 & wait"
+    "dev": "export METRONOM_PORT=${METRONOM_PORT:-3000} NI_PORT=${NI_PORT:-3001}; export NI_ORIGIN=${NI_ORIGIN:-http://localhost:$NI_PORT}; npm --prefix apps/metronom run dev -- --port $METRONOM_PORT & npm --prefix apps/narodnye-investicii run dev -- --port $NI_PORT & wait"
   }
 }
