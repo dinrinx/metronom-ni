@@ -2,3 +2,5 @@ node_modules/
 .next/
 test-results/
 *.tsbuildinfo
+.env*.local
+.vercel/
