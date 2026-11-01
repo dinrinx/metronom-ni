@@ -9,6 +9,7 @@ import { OverdraftConfirmedScreen } from "@/app/crisis/_components/OverdraftConf
 import { OverdraftOfferScreen } from "@/app/crisis/_components/OverdraftOfferScreen";
 import { SuccessScreen } from "@/app/crisis/_components/SuccessScreen";
 import { formatDate, formatRub } from "@/lib/format";
+import { emitCampaignClosed } from "@/lib/handoff/emitCampaignClosed";
 import { useAppState } from "@/state/AppStateContext";
 
 const TYPE_LABEL: Record<string, string> = {
@@ -43,6 +44,9 @@ export default function CampaignDetailPage() {
 
   function markSuccess() {
     dispatch({ type: "UPDATE_CAMPAIGN", id: campaign!.id, patch: { status: "реализовано", raisedPercent: 100 } });
+    emitCampaignClosed({ ...campaign, status: "реализовано", raisedPercent: 100 }, activeProfile);
+    // eslint-disable-next-line react-hooks/immutability
+    window.location.href = "/campaign-handoff";
     setStage("success");
   }
 
