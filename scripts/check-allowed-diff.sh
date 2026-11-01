@@ -6,6 +6,7 @@ BASE="${1:-baseline}"
 
 # путь | сколько строк максимум можно удалить (0 = только добавлять)
 ALLOWED=(
+  # точки подключения
   "apps/metronom/next.config.ts|10"
   "apps/metronom/domain/types.ts|0"
   "apps/metronom/lib/navigation/step-paths.ts|0"
@@ -13,9 +14,18 @@ ALLOWED=(
   "apps/metronom/components/metronome/prototype-app.tsx|3"
   "apps/narodnye-investicii/next.config.ts|10"
   "apps/narodnye-investicii/src/app/campaigns/[id]/page.tsx|0"
-  "apps/metronom/package-lock.json|999999"
-  "apps/narodnye-investicii/package-lock.json|999999"
   ".gitignore|0"
+  # файлы, которые Next и npm переписывают сами
+  "apps/metronom/AGENTS.md|999999"
+  "apps/metronom/CLAUDE.md|999999"
+  "apps/metronom/next-env.d.ts|999999"
+  "apps/metronom/tsconfig.json|3"
+  "apps/metronom/package-lock.json|999999"
+  "apps/narodnye-investicii/AGENTS.md|999999"
+  "apps/narodnye-investicii/CLAUDE.md|999999"
+  "apps/narodnye-investicii/next-env.d.ts|999999"
+  "apps/narodnye-investicii/tsconfig.json|3"
+  "apps/narodnye-investicii/package-lock.json|999999"
 )
 
 if ! git rev-parse -q --verify "refs/tags/$BASE" >/dev/null; then
@@ -25,10 +35,11 @@ fi
 fail=0; checked=0
 while IFS=$'\t' read -r add del path; do
   [ -z "${path:-}" ] && continue
-  git cat-file -e "$BASE:$path" 2>/dev/null || continue   # новый файл — пропускаем
+  git cat-file -e "$BASE:$path" 2>/dev/null || continue
   checked=1
   limit=""
   for rule in "${ALLOWED[@]}"; do
+    case "$rule" in \#*) continue;; esac
     [ "${rule%%|*}" = "$path" ] && limit="${rule##*|}"
   done
   if [ ! -e "$path" ]; then
